@@ -1,0 +1,46 @@
+* IP Addresses in GCP
+
+IP addresses are assigned to the compute resources.
+When you are creating any executable instance in GCP,
+there must be an IP address associated with it.
+
+There are internal IP address and external IP address.
+
+External IP address is not mandatory, but each VM *must* have internal IP address.
+
+External IP address is used to communicate outside your VPC network or with the Internet.
+And that is optional when you are creating the VM.
+
+Internal IP address is used for a VM to communicate with other instances in the same VPC network.
+It doesn't matter if they are in the same region or in different regions.
+But they communicate with each other using internal IP addresses only.
+
+External IP address is used to communicate with instances in other networks or the Internet.
+
+Internal IP addresses are allocated to instances from the subnet IP range via DHCP.
+DHCP is a protocol in the GCP, which allows IP addresses to instances.
+
+Each instance must have their own region and in the VPC, you will get the subnet
+for the region so that internal IP associated with the instance must define
+within the range of the subnet.
+
+No manual intervention is required to assign internal IP to a VM.
+It is automatic.
+
+Internal IP address is ephemeral.
+It means internal IP address associated with your resource can be changed.
+
+External IPs are also assigned via DHCP.
+Google has some provided pool for external IPs and DHCP protocol will automatically
+pick up IP address from the pool.
+
+External IPs are mapped to internal IPs of VM instances.
+With the help of external IP, you can access your resources over the Internet.
+But that external IP is also associated with the internal IP for an instance.
+
+External IP can be static IP address if needed.
+
+External IP can be both ephemeral and static.
+
+Traffic using external IP address can cause additional billing chages on GCP.
+
