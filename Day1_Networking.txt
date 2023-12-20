@@ -27,7 +27,7 @@ within the range of the subnet.
 No manual intervention is required to assign internal IP to a VM.
 It is automatic.
 
-Internal IP address is ephemeral.
+Internal IP address is ephemeral. (but can be static if configured so)
 It means internal IP address associated with your resource can be changed.
 
 External IPs are also assigned via DHCP.
