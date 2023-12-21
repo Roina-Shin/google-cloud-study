@@ -160,3 +160,22 @@ Create a Load Balancer by defining frontend and backend services.
 
 8) Also, try ping the external IP or curl the external IP to see if it's healthy with :80 at the end.
 
+
+========================================
+
+Q7. You have a group of Compute Engine instances that run in multiple zones.
+You have a requirement to automatically re-create instances in case any of them fail.
+VMs should be re-created if they are unresponsive after 2 attempts of 8 seconds each.
+What should you do?
+
+A : 1. Use a managed instance group.
+2. Set the Autohealing health check to healthy (HTTP)
+
+An auto-healing health check with a managed instance group is required to perform
+auto-healing. It suggests using a managed instance group and setting the Autohealing health check
+to healthy. By setting up an HTTP-based heal check with appropriate check intervals
+and unresponsive thresholds, you can ensure that instances failing the health checks
+are automatically replaced, meeting the requirement of automatically re-creating
+instances that become unresponsive after 2 attempts of 8 seconds each.
+The health check can be configured to send HTTP requests and wait for a valid 
+response with a certain time frame ( in this case 2 attempts of 8 seconds each).
