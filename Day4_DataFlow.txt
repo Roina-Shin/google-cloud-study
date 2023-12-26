@@ -162,7 +162,15 @@ mvn -Pdataflow-runner compile exec:java \
 
   Refer to the picture uploaded in GCP_pictures folder in this repository.
 
-  
+  It allows us to monitor executions and also analyze various metrics with regards to job executions.
+
+  3) To verify it did the job we required to, head over to the Cloud Storage.
+
+  In your bucket, you will see that an additional folder named 'staging'/ was created.
+
+  Also, more importantly, in your output_data folder, you will see a new file created.
+
+  View the content to see what the output looks like.
 
 
 
