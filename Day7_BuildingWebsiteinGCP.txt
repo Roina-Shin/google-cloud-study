@@ -1,0 +1,73 @@
+1) Go to GCP console and look for 'marketplace' in the search bar.
+
+2) Type 'wordpress bitnami' in the marketplace search bar.
+  -> Bitnami package for WordPress is pre-configured and ready-to-use immediately on any platform 
+  (e.g. GCP, AWS, Azure, etc.)
+
+3) Select 'WordPress Certified by Bitnami and Automatic' from the list.
+
+4) What we seek from WordPress+Bitnami combi here is 'Bncert Tool' (SSL) that this package provides.
+
+5) Launch the deployment and configure the vm.
+
+6) While configuring, make sure 'allow HTTP/HTTPS traffic' checked.
+
+7) Click Deploy.
+
+8) You are automatically taken to the Deployment Manager page when finished.
+
+9) Click wordpress-certified folder and look at your site address is working.
+
+10) Go to WordPress admin and change your temporary password.
+
+11) Go to Users and change your user setting including Nickname, Display Name, Email, and *password*.
+
+12) Click update user profile.
+
+13) Next step is assigning an external IP address.
+
+14) Log in to SSH tool and check if the Bncert Tool is installed.
+   -> cd / -> cd /opt/bitnami -> ls -al (check here if bncert-tool is installed)
+
+15) Close the SSH window and go to your compute engine vm instance.
+
+16) Scroll down and look for Network Interfaces.
+
+17) Click that and on the left side select 'IP Address'
+
+18) As your IP address is ephemeral, we need to make it 'static' so that it doesn't change when you reboots your machine.
+
+19) Select 'Reserve external static address' and pick Premium for Network Service Tier and attach it to your vm instance.
+
+20) Go back to your Deployment Manager and see if your IP address has changed to your new static address.
+
+21) Refresh your old IP on browser, too. It will work.
+
+22) To give this IP address a custom dommain name (yejin-cloud-study.site), you need to buy your domain from a vendor.
+
+23) I used NameCheap site to register one and after buying your domain go to your Domain List and click Manage.
+
+24) Go to Advanced DNS and add custom records like following:
+
+    Type: A record, Host: @, Value: your static IP address, TTL: Automatic
+    Type: A record, Host: www, Value: your static IP address, TTL: Automatic
+
+25) Save the changes and it could take 15-20 minutes to take effect.
+
+26) To check if your domain address works, type the address on the browser.
+
+27) The last step is to add SSL to your site.
+
+28) Go to your Deployment Manager and click SSH.
+
+29) We are going to run the bncert-tool here.
+
+30) Type the following commands:
+    sudo /opt/bitnami/bncert-tool
+    - when prompted, enter your domain (e.g. www.yejin-cloud-study.site)
+    - when prompted, say yes to enable HTTP to HTTPS redirection.
+    - Enter your valid email address.
+    - Enter y for Let's Encrypt subscriber agreement.
+    - Once done, enter exit to get out of the shell.
+
+31) Enter your domain again and check if the security warning sign disappeared.
