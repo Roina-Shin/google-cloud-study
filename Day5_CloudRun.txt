@@ -135,8 +135,11 @@ You need a container image url that specifies the docker container image
 that contains your application code and dependencies and it should be hosted in the Artifact Registry,
 which is accessible to Cloud Run.
 
-So always push the docker image to the Artifact Registry so that it is easily accessible,
+So always push the docker image to the Artifact Registry so that it is easily accessible to select the url
 when creating a service on Cloud Run.
+
+
+
 
 
 
