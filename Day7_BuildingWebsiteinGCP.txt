@@ -1,3 +1,5 @@
+***Through the courtesy of Stuffedbox(https://www.youtube.com/watch?v=eTk3JC247fk&t=1s)
+
 1) Go to GCP console and look for 'marketplace' in the search bar.
 
 2) Type 'wordpress bitnami' in the marketplace search bar.
