@@ -1,0 +1,34 @@
+YAML is a light-weight, human-readable data-serialization language. 
+It is primarily designed to make the format easy to read while including advanced features.
+
+YAML stands for "YAML Ain't Markup Languange".
+
+It is similar to XML and JSON files but uses a more minimalist syntax even while maintaining similar capabilities.
+
+YAML files are created with extensions ".yaml" or ".yml". 
+You can use any IDE or text editor to open/create YAML files.
+
+JSON doesn't support comments. While YAML supports comments inside your YAML file.
+
+YAML is easy and simple to represent complex mapping. Due to which it is heavily used in configuration settings.
+
+** XML vs JSON vs YAML
+
+The first data exchange format, especially in web services, was XML.
+The applications could understand XML because it is language neutral.
+
+With the invention of mobile app, people began to feel XML is heavy in nature for mobile applicaions.
+
+That's how JSON came along and became a beloved format for web/mobile applications.
+
+But with the advent of devops, everyone tried to find easier ways for configurations and started using YAML.
+
+YAML is a super-set of JSON as all the features of JSON can be found in YAML.
+
+But JSON is still favored as the data transfer format over Internet.
+
+Since YAML is a human friendly format, it is widely used in writing configuration files 
+in different DevOps tools, cloud platforms, and applications.
+
+
+
