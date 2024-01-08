@@ -30,5 +30,26 @@ But JSON is still favored as the data transfer format over Internet.
 Since YAML is a human friendly format, it is widely used in writing configuration files 
 in different DevOps tools, cloud platforms, and applications.
 
+** The rule of thumbs in writing YAML
+
+1) Indentation of whitespace is used to denote structure. This is similar to Python using indentation to highlight blocks of code.
+
+2) The basic structure of YAML file is a map. You might call this a dictionary, hash or object,
+depending on your favorite programming language.
+
+3) Tabs are not included as indentation for YAML. 
+
+4) YAML is case sensitive in nature. [name: accounts != Name: Accounts]
+
+** Data types in YAML
+
+1) key-value pairs
+: most things in YAML are in a form of key-value pair. Key-value pairs are the basis of the YAML construction.
+
+2) Space is mandatory between a key and a value after the colon(:).
+<key>: <value>
+
+3) YAML allows you to define your value string in double quotes("yejin"), single quotes('yejin'), and without quotes(yejin).
+
 
 

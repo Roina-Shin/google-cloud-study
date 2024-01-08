@@ -1,0 +1,53 @@
+A signed URL allows limited-time access to cloud storage buckets.
+
+Using signed URLs provide access to users to store their objects only for a limited time.
+
+By generating signed URLs with a predetermined time, users can only upload and access their own invoices
+within the specified timeframe (30 minutes). 
+
+After the expiration time, the URLs will no longer be valid, effectively limiting the user's write access to their own invoices.
+
+The below guide shows you how to generate and use the signed URL for your own purposes:
+https://cloud.google.com/storage/docs/access-control/signing-urls-with-helpers#gsutil
+
+I ran the following command to create a signed URL to access my text file in a bucket:
+
+gsutil signurl -d 5m -r asia-northeast3 [your service account private key file].json gs://yejin-signed-url-test-bucket/sample.text
+
+-d : duration (5 minutes)
+
+-r : region
+
+Your service account private key file can be generated in JSON format in IAM page.
+
+Go to your default compute service account page and click three dots on the right side.
+Click Manage Keys option and then click Create Key.
+
+You can generate a key file and download it to your download folder in JSON format.
+
+Then, move the file back to your GCP project folder using Cloud Shell Editor.
+Inside the editor, you can upload the file in your preferred space.
+
+Then, go to cloud shell to run the command above to create your signed URL.
+
+Now, you can see your private file inside the bucket using the signed URL.
+
+There is a command that Google introduces in their official document to upload a content to your bucket file:
+
+gsutil signurl -m PUT -d 1h -c CONTENT_TYPE KEY_FILE gs://BUCKET_NAME/OBJECT_NAME
+
+Where:
+
+CONTENT_TYPE is the object's content type. For example, image/png.
+
+KEY_FILE is the path to the file containing your service account's private key. For example, Desktop/private-key.json.
+
+BUCKET_NAME is the name of the bucket where the object is being uploaded. For example, example-bucket.
+
+OBJECT_NAME is the name to assign to the uploaded object. For example, cat.png.
+
+But when I ran that command it didn't come out successful for some reasons.
+(The page gave me error saying that the request signature does not match the signature I provided, but I offered the exact same signature that I used to create the previous signed URL.^^;;;;)
+
+If anyone knows how to solve this, please let me know. :)
+
