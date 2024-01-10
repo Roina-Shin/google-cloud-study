@@ -1,0 +1,89 @@
+** Create a standard GKE cluster
+
+1) On GCP console, search kubernetes.
+
+2) Enable the Kubernetes API and click create cluster.
+
+3) Google's default cluster creation setting is set to Autopilot Cluster,
+but we want to create a Standard Cluster, so switch to the Standard Cluster if you are not already in the creation page.
+
+4) Leave almost all settings incluing Networking, Security, Metadata, etc. as dafault, but in the Nodes section,
+as it is for testing purposes, you can change the machine type, boot size, etc. to more economical options.
+
+5) Go ahead and create a cluster.
+
+6) You will see a new cluster generated in GCP console.
+
+7) Go to clusters and click the three dots on the right side of the generated cluster.
+
+8) Clcik Connect and you will see a command line access tool.
+
+9) Copy and paste the command line when you open the Cloud Shell.
+
+10) You will see the message like following:
+
+Fetching cluster endpoint and auth data.
+kubeconfig entry generated for standard-public-cluster-1.
+
+11) With this, your cluster is connected to the kubectl command in the Cloud Shell by configuring the credential info.
+
+12) Run the following command:
+
+kubectl version
+
+If it is showing the version information, you are good to go.
+
+13) Run the next command:
+
+kubectl get nodes
+-> You will see all the nodes that are running your cluster.
+
+kubectl get pods
+-> If you run this, you will see "No resources found in default namespace."
+
+kubectl get pods -n kube-system
+-> You will see all the running system pods (system workloads) in your cluster. 
+
+14) We are going to deploy a sample application here.
+
+https://github.com/stacksimplify/google-kubernetes-engine/tree/main/02-Create-GKE-Cluster/kube-manifests
+
+Go to the URL above and download 2 YAML files within the kube-menifests folder to your local machine.
+
+Go back to your cloud shell and click three dots on the top right to select Upload.
+Upload the two files in your preferred location.
+
+15) To deploy these files, run the following command:
+
+kubectl apply -f [the folder name that two YAML file nests in]
+
+16) You will get a message that a service is created.
+
+To verify the deployment, run the following:
+
+kubectl get deployment
+
+To view the service, run this:
+
+kubectl get service
+
+You will see your load balancer created.
+You will also see the default Kubernetes Cluster IP service as well.
+
+17) Copy the external IP listed in 'kubectl get service' command result.
+Paste it to your browser and see if your app is working. 
+
+18) Run kubectl get pod to see how many running pods you have.
+
+19) You will see 2 pods running. Try to curl the same external IP to see if your load balancer is working.
+(What I mean by the load balancer working is that it will load balance the traffic to different pods.)
+
+20) Run curl [external IP address] and you will see a different Host Name or pods appear each time you run.
+
+Another important point is you can also see a load balancer in GCP console that is automatically created when you deploy your app.
+
+Finally, you can clean up what you have already tested by running the command:
+
+kubectl delete -f myapp1-deployment
+
+This would delete the deployment and the app and the load balancer altogether. 

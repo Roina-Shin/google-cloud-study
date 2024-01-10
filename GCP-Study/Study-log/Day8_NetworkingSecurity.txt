@@ -1,0 +1,8 @@
+** Networking Security in Google cloud
+
+1. Cloud NAT
+
+Cloud NAT is a Google service that allows us to reduce the number of public IP addresses
+we need to have in place.
+
+NAT stands for Network Address Translation.
