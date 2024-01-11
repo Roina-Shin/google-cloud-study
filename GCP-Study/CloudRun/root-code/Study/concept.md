@@ -11,7 +11,7 @@ Python, Java, .NET Core, or Ruby.
 
 - You can use the source-based deployment option that builds the container for you.
 
-** How to run your code on Cloud Run
+## How to run your code on Cloud Run
 
 - On Cloud Run, your code can either run continuously as a service or as a job.
 
@@ -49,7 +49,7 @@ If you see any problems with that revision, you can roll it back to the previous
 2. Use ingress settings to restric network access. -> This is useful if you want to allow only internal traffic from the VPC or internal services.
 3. Allow only authenticated users with Cloud Identity-Aware Proxy(IAP).
 
-** Cloud Run Job
+## Cloud Run Job
 
 - If your code performs a one-time task and then stops, Cloud Run Job is a good option to run your code.
 
