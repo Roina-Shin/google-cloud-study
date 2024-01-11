@@ -1,4 +1,4 @@
-*** What is Google Cloud Run?
+** What is Google Cloud Run?
 
 - Cloud Run is a managed compute platform that lets you run containers
 directly on top of Google's scalable infrastructure.
@@ -11,7 +11,7 @@ Python, Java, .NET Core, or Ruby.
 
 - You can use the source-based deployment option that builds the container for you.
 
-*** How to run your code on Cloud Run
+** How to run your code on Cloud Run
 
 - On Cloud Run, your code can either run continuously as a service or as a job.
 
@@ -19,7 +19,7 @@ Python, Java, .NET Core, or Ruby.
 
 - Cloud Run Job is used to run a code to completion as a one-time task.
 
-*** Cloud Run Service
+** Cloud Run Service
 
 - Cloud Run Service is a stateless container that is invocable via HTTP requests.
 
@@ -45,11 +45,11 @@ If you see any problems with that revision, you can roll it back to the previous
 
 - Cloud Run Service can be reachable from the Internet or you can restrict access in 3 ways:
 
-1) Specify an access policy using Cloud IAM. -> This is the most granular way to control access.
-2) Use ingress settings to restric network access. -> This is useful if you want to allow only internal traffic from the VPC or internal services.
-3) Allow only authenticated users with Cloud Identity-Aware Proxy(IAP).
+1. Specify an access policy using Cloud IAM. -> This is the most granular way to control access.
+2. Use ingress settings to restric network access. -> This is useful if you want to allow only internal traffic from the VPC or internal services.
+3. Allow only authenticated users with Cloud Identity-Aware Proxy(IAP).
 
-*** Cloud Run Job
+** Cloud Run Job
 
 - If your code performs a one-time task and then stops, Cloud Run Job is a good option to run your code.
 
@@ -60,3 +60,20 @@ independent instances in parallel, that is, an array job.
 
 - You can schedule a job and execute it at whatever time you defined.
 That is one of the purposes of running a Cloud Run Job.
+
+** Cloud Run integrations
+
+- Data Storage
+  - Cloud Run integrates with Cloud SQL (managed MySQL, PostgreSQL, and SQL Server), Memorystore (managed Redis and Memcached), Firestore, Cloud Spanner, Cloud Storage, and more.
+
+- Logging and error reporting
+  - Container logs are automatically ingested by Cloud Logging. If there are exceptions in the logs, Error Reporting aggregates them, and then notifies you.
+
+- Service Identity
+  - Every Cloud Run revision is linked to a service account, and the Google Cloud client libraries transparently use this service account to authenticate with Google Cloud APIs.
+
+- Continuous delivery
+  - If you store your source code in GitHub, Bitbucket, or Cloud Source Repositories, you can configure Cloud Run to automatcially deploy new commits.
+
+- Private networking
+  - Cloud Run instances can reach resources in the VPC network through the serverless VPC access connector. 
