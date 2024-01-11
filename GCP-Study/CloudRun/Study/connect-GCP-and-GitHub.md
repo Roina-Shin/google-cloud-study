@@ -17,7 +17,7 @@
 4. After selecting a region and entering a name, you will be prompted with an authentication window. Proceed with that and select the GitHub repo you want to connect with GCP.
 
 
-![Cloud-Run-Select-Repo](/GCP_pictures/Cloud-Run-Select-Repo.PNG "Select only the repo that you want to connect with the GCP)
+![Cloud-Run-Select-Repo](/GCP_pictures/Cloud-Run-Select-Repo.PNG "Select only the repo that you want to connect with the GCP")
 
 
 5. If everything goes fine, you will see the status window like this.
