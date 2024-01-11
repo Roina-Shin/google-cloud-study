@@ -4,4 +4,4 @@
 
 2. Click on Repositories.
 
-![Cloud-Run-Cloud-Build](/GCPstudy/Cloud-Run-Cloud-Build.PNG "Select 2nd gen to create your repository")
+![Cloud-Run-Cloud-Build](/GCP_pictures/Cloud-Run-Cloud-Build.PNG "Select 2nd gen to create your repository")
