@@ -1,4 +1,4 @@
-### [Source of this study material : Google Cloud Run by Cloud Monkey](https://www.udemy.com/course/google-cloud-run-hands-on-technical-deep-dive/learn/lecture/39356142?start=0#overview)
+### [Source of this study material : Google Cloud Run by Cloud Monkey](https://www.udemy.com/course/google-cloud-run-hands-on-technical-deep-dive/)
 
 ## What is Google Cloud Run?
 
