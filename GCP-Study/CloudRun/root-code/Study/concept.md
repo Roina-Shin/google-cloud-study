@@ -1,4 +1,4 @@
-** What is Google Cloud Run?
+## What is Google Cloud Run?
 
 - Cloud Run is a managed compute platform that lets you run containers
 directly on top of Google's scalable infrastructure.
@@ -19,7 +19,7 @@ Python, Java, .NET Core, or Ruby.
 
 - Cloud Run Job is used to run a code to completion as a one-time task.
 
-** Cloud Run Service
+## Cloud Run Service
 
 - Cloud Run Service is a stateless container that is invocable via HTTP requests.
 
@@ -61,7 +61,7 @@ independent instances in parallel, that is, an array job.
 - You can schedule a job and execute it at whatever time you defined.
 That is one of the purposes of running a Cloud Run Job.
 
-** Cloud Run integrations
+## Cloud Run integrations
 
 - Data Storage
   - Cloud Run integrates with Cloud SQL (managed MySQL, PostgreSQL, and SQL Server), Memorystore (managed Redis and Memcached), Firestore, Cloud Spanner, Cloud Storage, and more.
