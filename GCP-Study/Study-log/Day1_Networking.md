@@ -1,72 +1,79 @@
-### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+### [Source of this study material : Google Cloud Platform from Zero to Hero](https://www.udemy.com/course/google-cloud-platform-from-zero-to-hero-the-complete-guide/)
 
 
-* IP Addresses in GCP
+Networking knowledge is what makes a good cloud architect.
 
-IP addresses are assigned to the compute resources.
-When you are creating any executable instance in GCP,
-there must be an IP address associated with it.
+We'll cover 4 networking cloud services:
 
-There are internal IP address and external IP address.
+  - VPC
 
-External IP address is not mandatory, but each VM *must* have internal IP address.
+  - Subnets
 
-External IP address is used to communicate outside your VPC network or with the Internet.
-And that is optional when you are creating the VM.
+  - Firewall
 
-Internal IP address is used for a VM to communicate with other instances in the same VPC network.
-It doesn't matter if they are in the same region or in different regions.
-But they communicate with each other using internal IP addresses only.
+  - Laod balancer
 
-External IP address is used to communicate with instances in other networks or the Internet.
 
-Internal IP addresses are allocated to instances from the subnet IP range via DHCP.
-DHCP is a protocol in the GCP, which allows IP addresses to instances.
+## VPC
 
-Each instance must have their own region and in the VPC, you will get the subnet
-for the region so that internal IP associated with the instance must define
-within the range of the subnet.
+ - VPC stands for Virtual Private Cloud.
 
-No manual intervention is required to assign internal IP to a VM.
-It is automatic.
+ - This is a network in which you can deploy cloud resources.
 
-Internal IP address is ephemeral. (but can be static if configured so)
-It means internal IP address associated with your resource can be changed.
+ - Many cloud resources by default are deployed within VPC.
 
-External IPs are also assigned via DHCP.
-Google has some provided pool for external IPs and DHCP protocol will automatically
-pick up IP address from the pool.
+   - VMs and load balancers
 
-External IPs are mapped to internal IPs of VM instances.
-With the help of external IP, you can access your resources over the Internet.
-But that external IP is also associated with the internal IP for an instance.
+ - There are also many cloud resources that are not by default deployed in VPC.
 
-External IP can be static IP address if needed.
+   - App Engine, Cloud SQL, and more
 
-External IP can be both ephemeral and static.
+ - Resources in VPC can communicate with each other by default.
 
-Traffic using external IP address can cause additional billing chages on GCP.
+ - In general, you can think of it as your organization's private network.
 
-=======================================
+ - VPCs are basically free and there is a limit of 15 VPCs that you can create per project.
 
-Q1. Your app communicates with a licensing server on the IP 10.194.3.41
-several times a day to verify its authenticity. You need to migrate the licensing
-server to Compute Engine. You cannot change the configuration of the app and
-want the app to be able to reach the licensing server at the same IP.
-What should you do?
 
-A: Reserve the IP 10.194.3.41 as a static internal IP address using 
-gcloud and assign it to the licensing server.
+## Characteristics of VPC
 
-Internal IP needs to be reserved as static as, by default, the IPs are
-ephemeral.(they can change after a VM restarts)
+ - VPCs are automatically created per project.
 
-It suggests reserving the IP 10.194.3.41 as a static internal IP address
-using gcloud and assigning it to the licensing server.
+ - Can be connected via peering.
 
-This ensures that the application can still reach the licensing server
-at the same IP, as desired.
+ - VPCs are segmented using subnets.
 
-By reserving the IP as a tatic internal address, it guarantees that the IP
-will not change and the application can establish a consistent connection
-with the licensing server.
+ - VPCs are projected using firewall rules.
+
+ - The most important thing to think about when designing networkig is:
+
+   - How to limit access to the resources in the VPC so that risk is minimized.
+
+
+## Subnet
+
+ - Subnet is a logical segment in the VPC.
+
+ - It has its own IP range.
+
+ - Subnet is used as a logical group of resources in the VPC.
+
+ - Subnet is a must. Resources must be placed in a subnet and cannot be placed directly in a VPC.
+
+ - Resources in a subnet can talk to resources in other subnets in the same VPC.
+
+ - Similar to VPCs, subnets are free. 
+
+ - New VPCs are created using one of two modes:
+
+   | Auto Mode | Custom mode |
+   | ------ | ----------- |
+   | One subnet from each region is automatically created   | No subnets are created automatically |
+   | Subnets are automatically assigned IP range | Full control on subnets and IP ranges |
+   | Ranges fit within the 10.128.0.0/9 CIDR blcok | If you plan to connect the VPC to other VPCs, it is preferred mode |
+   | When new regions are added, new subnets are automatically added | Good when you have no need for subnets in every region |
+
+ - Auto mode is useful when you want to have a subnet in every region.
+
+ - Custom mode is a preferred for production scenarios. It's a good idea to have a full control of networking structure in production.
+
