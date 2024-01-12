@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 * IP Addresses in GCP
 
 IP addresses are assigned to the compute resources.
