@@ -7,11 +7,9 @@
 
 2. Enable the Kubernetes API and click create cluster.
 
-3. Google's default cluster creation setting is set to Autopilot Cluster,
-but we want to create a Standard Cluster, so switch to the Standard Cluster if you are not already in the creation page.
+3. Google's default cluster creation setting is set to Autopilot Cluster,but we want to create a Standard Cluster, so switch to the Standard Cluster if you are not already in the creation page.
 
-4. Leave almost all settings incluing Networking, Security, Metadata, etc. as dafault, but in the Nodes section,
-as it is for testing purposes, you can change the machine type, boot size, etc. to more economical options.
+4. Leave almost all settings incluing Networking, Security, Metadata, etc. as dafault, but in the Nodes section, as it is for testing purposes, you can change the machine type, boot size, etc. to more economical options.
 
 5. Go ahead and create a cluster.
 
@@ -25,19 +23,21 @@ as it is for testing purposes, you can change the machine type, boot size, etc. 
 
 10. You will see the message like following:
 
-Fetching cluster endpoint and auth data.
-kubeconfig entry generated for standard-public-cluster-1.
+> Fetching cluster endpoint and auth data. kubeconfig entry generated for standard-public-cluster-1.
 
 11. With this, your cluster is connected to the kubectl command in the Cloud Shell by configuring the credential info.
 
 12. Run the following command:
 
+```
 kubectl version
+```
 
 If it is showing the version information, you are good to go.
 
 13. Run the next command:
 
+```
 kubectl get nodes
 -> You will see all the nodes that are running your cluster.
 
@@ -46,6 +46,7 @@ kubectl get pods
 
 kubectl get pods -n kube-system
 -> You will see all the running system pods (system workloads) in your cluster. 
+```
 
 14. We are going to deploy a sample application here.
 
@@ -58,17 +59,23 @@ Upload the two files in your preferred location.
 
 15. To deploy these files, run the following command:
 
+```
 kubectl apply -f [the folder name that two YAML file nests in]
+```
 
 16. You will get a message that a service is created.
 
 To verify the deployment, run the following:
 
+```
 kubectl get deployment
+```
 
 To view the service, run this:
 
-kubectl get service
+```
+kubectl get s1ervice
+```
 
 You will see your load balancer created.
 You will also see the default Kubernetes Cluster IP service as well.
@@ -87,6 +94,8 @@ Another important point is you can also see a load balancer in GCP console that 
 
 Finally, you can clean up what you have already tested by running the command:
 
+```
 kubectl delete -f myapp1-deployment
+```
 
 This would delete the deployment and the app and the load balancer altogether. 
