@@ -29,7 +29,9 @@ But to use only the yyyy-mm-dd format for your backup files, you need to extract
 
 This command will do:
 
+```
 date +%Y-%m-%d (capital Y gives you the full year[yyyy] while small y means the shortened version[yy].)
+```
 
 
 ### 3. Go to your home directory and make a new directory called backups.
@@ -67,8 +69,9 @@ This will create a backup folder for the existing folder that you would like to 
 
 Run the following command:
 
+```
 chmod +x my-backup
-
+```
 
 ### 6. cd into your backups folder and nothing will be there.
 
