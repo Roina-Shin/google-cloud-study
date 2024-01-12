@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 Google Cloud SQL is a fully managed relational database service for 
 MySQL, PostgreSQL, and SQL server.
 

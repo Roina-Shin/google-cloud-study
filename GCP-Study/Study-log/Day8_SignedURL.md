@@ -1,3 +1,6 @@
+### [Source of this study material : How to create Signed URL](https://www.youtube.com/watch?v=vwCkkb7HjSU)
+
+
 A signed URL allows limited-time access to cloud storage buckets.
 
 Using signed URLs provide access to users to store their objects only for a limited time.

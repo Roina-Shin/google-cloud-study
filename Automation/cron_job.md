@@ -1,4 +1,4 @@
-** A simple way to schedule a back up for folders using a cron job
+## A simple way to schedule a back up for folders using a cron job
 
 1. To do this, you first need to know what 'tar' is.
 

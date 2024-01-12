@@ -1,4 +1,7 @@
-** Networking Security in Google cloud
+### [Source of this study material : Google Cloud Security Best Practices by Dan Sullivan](https://www.udemy.com/course/google-cloud-security-best-practices/)
+
+
+## Networking Security in Google cloud
 
 1. Cloud NAT
 

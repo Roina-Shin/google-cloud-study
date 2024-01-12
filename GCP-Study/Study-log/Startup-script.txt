@@ -1,6 +1,0 @@
-apt-get update
-apt-get install apache2
-cat - >/var/www/html/index.html <<EOF
-<html><body><h1>Yejin is progressing slowly!</h1>
-<h3>Yejin, you are doing great. Just keep up the good work.</h3>
-EOF

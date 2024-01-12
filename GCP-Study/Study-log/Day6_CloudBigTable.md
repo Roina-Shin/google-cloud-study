@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 Cloud Bigtable is Google's NoSQL Big Data database service. 
 
 Bigtable is a sparse, distributed, persistent storage system for structured data.
