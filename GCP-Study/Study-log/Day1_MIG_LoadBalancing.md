@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 Instance Template is a resource that you use to create VM and managed instance groups.
 
 Instance Template defines the machine type, boot disk image, or container iamage,
@@ -13,7 +16,7 @@ Instance Group is a collection of VM instances that you can manage as a single e
 Instance Group is used to avoid individual instance management in project.
 
 There are 2 kinds:
-1. Managed Instance Group *recommended
+1. **Managed Instance Group** *recommended
 2. Unmanaged Instance Group
 
 Managed Instance Group is used to create multiple identical VMs.
@@ -41,7 +44,7 @@ if any zone goes down you can still run your app in other zones.
 ### Go to Instance Group > Create Instance Group
  - Choose instance template you created and specify nuber of instances, etc.
 
- >> In the management > automation section of Instance Group Create page, insert this startup script to check how your expernal IP is working:
+ > In the management > automation section of Instance Group Create page, insert this startup script to check how your expernal IP is working:
 
 ```
 sudo apt-get update
@@ -95,9 +98,9 @@ Let's look at each component of this workflow of LB in detail:
 
 5. NST stands for Network Service Tier. Theare 2 types of NST:
 
-  - Premium Tier : Highest performance. Traffic between the internet and VM instances in your VPC network is routed by fast Google's network. It is default within GCP.
+   - Premium Tier : Highest performance. Traffic between the internet and VM instances in your VPC network is routed by fast Google's network. It is default within GCP.
 
-  - Standard Tier : Cost optimized. Traffic between the internet and VM instances in your VPC network is routed over the internet in general.
+   - Standard Tier : Cost optimized. Traffic between the internet and VM instances in your VPC network is routed over the internet in general.
 
 HTTP(S) load balancers in the Premium Tier use global external forwarding rules.
 HTTP(S) load balancers in the Standard Tier use regional external forwarding rules.
