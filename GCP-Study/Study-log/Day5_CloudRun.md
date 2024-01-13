@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 Cloud Run is a serverless compute platform that allows us to test and deploy containers
 and containerized applications effortlessly.
 

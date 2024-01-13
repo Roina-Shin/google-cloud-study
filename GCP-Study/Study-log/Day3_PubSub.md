@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 Google Cloud Pub/Sub is a messaging service for exchanging event data among applications and services.
 
 Pub/Sub decouple senders and receivers, allowing for secure and highly available communication 

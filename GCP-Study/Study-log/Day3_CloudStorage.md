@@ -1,3 +1,6 @@
+### [Source of this study material : GCP Fundamentals for Beginners by Janakiram MSV](https://www.udemy.com/course/google-cloud-platform-gcp-fundamentals-for-beginners/)
+
+
 Google Cloud Storage is a RESTful online file storage web service for storing and accessing data
 on Google Cloud Platform infrastructure.
 
