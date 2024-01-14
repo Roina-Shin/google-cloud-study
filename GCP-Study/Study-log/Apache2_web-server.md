@@ -109,7 +109,7 @@ service apache2 start
 - There, click Reserve External Static IP Address. After you configured your static external IP address, you will see something like below:
 
 
-![reserve-static-ip](/GCP_pictures/Study-logs/Apache/reserve-static-ip.PNG "Reserve a static IP address")
+![reserve-static-ip-address](/GCP_pictures/Study-logs/Apache/reserve-static-ip.PNG "Reserve a static IP address")
 
 
 - On the far right side of the screen, you will see three dots. When you click this, you will see some actions you can take on the static IP address. As I already made a static IP address and once used it for other resource, I see 'Reassign it to another resource" option.
