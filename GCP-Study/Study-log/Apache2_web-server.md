@@ -3,7 +3,7 @@
 
 ## What is Apache2 web server?
 
-Apache2 is a web server software that you install on your VM instance as well as at the external IP of your VM instance so that visitors from the Internet can view content on your website.
+Apache2 is a web server software that you can install on your VM instance as well as at the external IP of your VM instance so that visitors from the Internet can view content on your website.
 
 
 ## To play with Apache2 web server on your VM
@@ -54,7 +54,7 @@ ls /var/www/html
 ```
 
 
-- And you can see the **index.html** which are present in the directory.
+- And you can see the **index.html** in that directory.
 
 
 - That is the file where you want to put your own content. To experiment:
@@ -72,3 +72,56 @@ echo "Hello from $(hostname)" > /var/www/html/index.html
 
 ![apache-hello-test](/GCP_pictures/Study-logs/Apache/apache-html-test.PNG "Simple hello test with apache server HTML file")
 
+
+- And this hello message on the external IP persists even after you close the SSH terminal. But when you stop your VM instance, the external IP address is lost.
+
+
+- When you stopped your VM instance and restarted it, then your external IP address will be different. 
+
+
+- Also, to see the HTML file you modified earlier, you **need to** restart the Apache server as well. In the SSH terminal:
+
+```
+sudo su
+
+service apache2 start
+```
+
+
+- Once this service is up and running, you can go and use the new external IP address to see your customized HTML page.
+
+
+## Internal & External IP Address
+
+- External IP address (a.k.a public IP address) is Internet addressable.
+
+- Internal IP address is internal to a corporate network.
+
+- All VMs are assigned at least one internal IP address.
+
+- When you stop your VM instance, the internal IP address remains the same. However, the external IP address changes when you restart the VM instance.
+
+
+## Reserve a static external IP address
+
+- Go to VPC Network on GCP console.
+
+- There, click Reserve External Static IP Address. After you configured your static external IP address, you will see something like below:
+
+
+![reserve-static-ip](/GCP_pictures/Study-logs/Apache/reserve-static-ip.PNG "Reserve a static IP address")
+
+
+- On the far right side of the screen, you will see three dots. When you click this, you will see some actions you can take on the static IP address. As I already made a static IP address and once used it for other resource, I see 'Reassign it to another resource" option.
+
+
+![reassign-to-resource](/GCP_pictures/Study-logs/Apache/reassign-to-resource.PNG "Reassign to another resource button")
+
+
+- Once you click that, you can choose the VM instance to attach to the static IP address.
+
+
+![reassign-ip-address](/GCP_pictures/Study-logs/Apache/reassign-ip-address.PNG "Reassign static IP address to VM")
+
+
+- That static IP address is now assigned to the VM instance. And this allows you to stop and restart the VM instance and still have the same external IP address.
