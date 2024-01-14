@@ -1,184 +1,185 @@
 ### [Source of this study material : GCP Associate Cloud Engineer by Ranga Karanam](https://www.udemy.com/course/google-cloud-certification-associate-cloud-engineer/)
 
 
-Instance Template is a resource that you use to create VM and managed instance groups.
+## Creating Managed Instance Group (MIG)
 
-Instance Template defines the machine type, boot disk image, or container iamage,
-labels, and other instance properties.
+- Instance Template is mandatory in order to create an MIG.
 
-Instance Template is a convenient way to save a VM instance's configuration
-so you can use it later to create VMs or groups of VMs.
-
-### Go to GCP console > Compute Engine > Create Instance Template
-
-Instance Group is a collection of VM instances that you can manage as a single entity.
-
-Instance Group is used to avoid individual instance management in project.
-
-There are 2 kinds:
-1. **Managed Instance Group** *recommended
-2. Unmanaged Instance Group
-
-Managed Instance Group is used to create multiple identical VMs.
-Managed Instance Group is typically used with Load Balancers.
-
-Advantages of MIG:
-
-1. High availability for production : if any machine goes down, that failure cause the
-MIG to automatically recreate VM in accordance with the MIG template specification.
-
-
-2. Auto-healing via Health Check : User can set up an autohealing policy.
-Periodically verifies that your app responds as expected on each instance in MIG.
-If not responded, VM is automatically recreated.
-
-3. Regional Coverage : Choose regional coverage over zonal coverage and it will protect
-if any zone goes down you can still run your app in other zones.
-
-4. Load Balancing : MIG works with load balancing services to distribute traffic across instances.
-
-5. Scalability : MIG will autoscale depending on your demand.
-
-5. Automated Updates : MIG lets you automatically update to a new version of software.
-
-### Go to Instance Group > Create Instance Group
- - Choose instance template you created and specify nuber of instances, etc.
-
- > In the management > automation section of Instance Group Create page, insert this startup script to check how your expernal IP is working:
+- I created a new Instance Template using a startup script like below:
 
 ```
-sudo apt-get update
-sudo apt-get install -y apache2
-cat <<EOF > /var/www/html/index.html
-<html><body><h1>Hi Yejin</h1>
-<p>You are learning one by one by practice. I think you are growing rapidly.</p>
-</body></html>
-EOF
+#!/bin/bash
+apt update 
+apt -y install apache2
+echo "Hello world from $(hostname) $(hostname -I)" > /var/www/html/index.html
 ```
 
-(!!only change the protocol https > http as we configured so in console)
+- Now, in Create Instance Group tab, I configured both the minimum number of VMs and the maximum number of VMs to 2 with Auto scaling enabled.
 
 
-Load Balancer is function to distribute user traffic across multiple instances of application.
-
-Load balancing reduces the risk that applications become overburdened, slow, or nonfunctional.
-
-HTTP and HTTPS load balancer are external global load balancer.
-(external LB for external traffic like Internet and internal LB for traffic within the same VPC)
-
-HTTP(S) load balancer use multiple backend types.
-Backend types such as homepage/user/order/registration backend services and,
-these backend services' URL will be mapped to the HTTP(S) load balancer.
-
-So, whenever you hit the DNS value or the URL of a particular website,
-that request will directly land on the HTTP(S) load balancer.
-
-And HTTP(S) load balancer will send that request to the global forwarding rules.
-
-Forwarding rule will forward your request (after identifying it) and send it
-to the proxy server.
-
-Once that request is received by the proxy server, proxy server will evaluate
-that request and send it to the URL map.
-
-If you have defined some URL map in your HTTP(S) load balancer, URL map will send
-that request to the backend services.
-
-And from that particular backend service, that request will directly go to the nodes.
-
-Let's look at each component of this workflow of LB in detail:
-
-1. Forwarding rule : it specified an external IP address, port, and global target HTTP(S) proxy.
-
-2. Clients (browser) : it uses the IP address and port to connect to the load balancer.
-
-3. The forwarding rule for an HTTP load balancer can only reference TCP ports 80 and 8080.
-
-4. The forwarding rule for an HTTPS load balancer can only reference TCP port 443.
-
-5. NST stands for Network Service Tier. Theare 2 types of NST:
-
-   - Premium Tier : Highest performance. Traffic between the internet and VM instances in your VPC network is routed by fast Google's network. It is default within GCP.
-
-   - Standard Tier : Cost optimized. Traffic between the internet and VM instances in your VPC network is routed over the internet in general.
-
-HTTP(S) load balancers in the Premium Tier use global external forwarding rules.
-HTTP(S) load balancers in the Standard Tier use regional external forwarding rules.
-
-6. Target Proxy : it receives a request from the client.
-It evaluates the request by using the URL map to make traffic routing decisions.
-
-Proxy can also authenticate communications by using SSL certificates.
-
-If a user is using HTTPS load balancing, the target proxy uses global SSL certificates
-to prove its identity to clients.
-
-7. URL Map : when a request arrives at the load balancer, the load balancer routes
-the request to a particular backend service based on configurations in a URL Map.
-
-URL Map has 2 components: host and path.
-Host - example.net
-Path - /video/hd
-http://example.net/video/hd
-
-8. Backend services : they distribute request to healthy backends.
-(e.g. instance groups containing Compute Engine VMs, GKE containers, or Cloud Storage Buckets, etc.)
-
-9. Session Affinity : it's the best effort to send request from a particular client
-to the same backend server for as long as the backend is healthy.
+![instance-group-with-2](/GCP_pictures/Study-logs/MIG/instance-group-with-2.PNG "Create an Instance Group with 2 VM instances")
 
 
-### To make and test a load balancer 
-
-1. Prepare this startup script to test your load balancer.
-
-```
-VALUE_OF_MY_MACHINE_ID=$(curl http://metadata.google.internal/computeMetadata/v1/instance/attributes/my-machine-id -H "Metadata-Flavor: Google"
-apt-get update
-apt-get install -y apache2
-cat - >/var/www/html/index.html <<EOF
-<html><body><h1>Yejin! You made it.</h1>
-<p>I'm glad you made it this far. Congrats and keep up the good work.</p>
-</body></html>
-EOF
-```
-
-2. Create an Instance Template and an Instance Group to nest the above startup script.
-
-3. IMPORTANT! When creating an Instance Template and adding Startup Script,
-don't forget to add Metadata Key / Value pair in Metadata section below the Starting Script.
-
-In Key you should enter the same 'my-machine-id' you specified in the Startup Script 
-and value (Value you can specify anything you want)
-
-4. IMPORTANT! When creating an Instance Group and editing autoscaling criteria,
-change the signal type to HTTP load balancing utilization.
-
-5. When you check your HTTP application, search on your console 'Networking Services'.
-
-6. Go to Load Balancing in Network Services.
-Create a Load Balancer by defining frontend and backend services.
-
-7. After creating the LB, check the external IP to see it's working.
-
-8. Also, try ping the external IP or curl the external IP to see if it's healthy with :80 at the end.
+- Go to the details tab of the MIG group you created, and test one of the VMs' external IP address.
 
 
----
+![test-MIG-instance](/GCP_pictures/Study-logs/MIG/MIG-instance-test.PNG "Test the external IP of one of your VMs in the MIG")
 
-Q7. You have a group of Compute Engine instances that run in multiple zones.
-You have a requirement to automatically re-create instances in case any of them fail.
-VMs should be re-created if they are unresponsive after 2 attempts of 8 seconds each.
-What should you do?
 
-A : 1. Use a managed instance group.
-2. Set the Autohealing health check to healthy (HTTP)
+## Cloud Load Balancing
 
-An auto-healing health check with a managed instance group is required to perform
-auto-healing. It suggests using a managed instance group and setting the Autohealing health check
-to healthy. By setting up an HTTP-based heal check with appropriate check intervals
-and unresponsive thresholds, you can ensure that instances failing the health checks
-are automatically replaced, meeting the requirement of automatically re-creating
-instances that become unresponsive after 2 attempts of 8 seconds each.
-The health check can be configured to send HTTP requests and wait for a valid 
-response with a certain time frame ( in this case 2 attempts of 8 seconds each).
+- Load Balancer distributes user traffic across instances of an application in a single region or multiple regions.
+
+- For Load Balancer to work properly, you need to create a **health check**.
+
+- That is the only way for a load balancer to check if the instances are healthy or not.
+
+- Using the health check, load balancer can route the traffic only to **healthy instances**.
+
+- This would help you recover from failures very quickly.
+
+- Global load balancer also provides you with a **single anycast IP**.
+
+  - This IP address can be used to receive traffic from multiple regions around the world.
+
+
+## HTTP vs HTTPS vs TCP vs TLS vs UDP
+
+- Let's get a quick overview of all these protocols.
+
+
+![how-protocols-work](/GCP_pictures/Study-logs/MIG/how-the-protocols-work.PNG "How the Internet protocols work")
+
+
+- When communication happens between 2 machines, the important layers are Application Layer, Transport Layer, and Network Layer.
+
+- Computers use a number of protocols to communicate just like humans can talk in multiple languages.
+
+- Each of these protocols have their own structure and syntax.
+
+- So for 2 machines to communicate, they must understand the different protocols like HTTP, HTTPS, UDP, etc.
+
+- The Network Layer is responsible for transferring bits and bytes (handles 0s and 1s in simple terms).
+
+- The Transport Layer is responsible for ensuring that the bits and bytes (the 0s and 1s) are transferred properly.
+
+- The Application Layer is on the top of the chain. This is where we build most of our applications. We make REST API calls and send emails at the Application Layer.
+
+- **(Remember)** Each layer makes use of the layers it. So when we make an HTTP request, it makes use of the TCP protocol in the Transport Layer and the IP protocol in the Network Layer.
+
+- **(Remember)** Most applications communicate at the Application Layer. But some high-performance applications like gaming or streaming applications directly talk at the Transport Layer.
+
+
+ - Network Layer 
+
+   - The Network Layer uses the **IP (Internet Protocol)**. IP is used to transfer bytes. It is naturally unreliable as some data can get lost while transferring.
+
+ - Transport Layer
+
+   - The Transport Layer uses the **TCP (Transmission Control)** that provides high reliability.
+
+   - TCP checks if the bytes arrived safely and correctly.
+
+   - **TLS (Transport Layer Security)** is similar to TCP, but it ensures that the bytes are encrypted. You can consider TLS as the secure form of TCP.
+
+   - **UDP (User Data Protocol)** is an alternative to TCP as it focuses more on performance over reliability. It is interested in how fast the bytes are received from the other side. Video streaming application uses UDP as the speed matters to them.
+
+ - Application Layer
+
+   - **HTTP(S) (Hypertext Transfer Protocol)** helps you build web applications.  
+
+   - HTTPS web applications would be using TLS which is the encrypted transmission protocol.
+
+
+
+## Creating a Load Balancer in GCP
+
+- Go to Load Balancing and click Create a Load Balancer.
+
+
+![create-load-balancer](/GCP_pictures/Study-logs/MIG/create-load-balancer.PNG "Create a Load Balancer")
+
+
+- As we are testing an HTTP app, start configuration in HTTP Load Balancer.
+
+- Inside the load balancer, at the high level, there are several things to configure:
+
+  - Backend configuration : Backend is where you want to redirect the incoming traffic to. For example, we want to redirect all the traffic to the MIG.
+
+  - Frontend configuration : Frontend is where you receive the traffic. The frontend provides you with the URL for the load balancer.
+
+  - Routing rules : Configure rules on how you redirect traffic to the backend from the frontend.
+
+
+- First, let's create a backend service for the load balancer. 
+
+
+
+![create-backend-service](/GCP_pictures/Study-logs/MIG/create-backend-service.PNG "Create a backend service for load balancer")
+
+
+
+- Our backend type will be instance group and choose the instance group you created. We will use HTTP and port 80 here.
+
+
+![backend-lb-config](/GCP_pictures/Study-logs/MIG/backend-lb-config.PNG "Backend load balancing service config")
+
+
+- In the Routing Rules section, we can simply select the instance group as our Backend service to receive all the traffic and leave the Host and Path empty. As we have only one web service to send traffic to.
+
+
+![routing-rules-config](/GCP_pictures/Study-logs/MIG/routing-rules-config.PNG "Configure Routing Rules")
+
+
+- In the Frontend Service section, just check that the protocol is set to HTTP and the port to 80 for our own app.
+
+
+![frontend-lb-config](/GCP_pictures/Study-logs/MIG/frontend-lb-config.PNG "Configure Frontend Service")
+
+
+- Let's go over to Review and Fianalize. If everything looks good, go ahead and click Create.
+
+
+- Once done, you can go to the Load Balancer details tab and see its IP address. As I already configured it to show hostname and hostname IP address in the instance IP addresses, as you go to their respective IP address, you will see the Load Balancer distributes your instances evenly when you hit refresh multiple times.
+
+
+![load-balancer-ip-test](/GCP_pictures/Study-logs/MIG/load-balancer-ip-test.PNG "Load Balancer IP test")
+
+
+
+## Load Balancer Terminology
+
+- Backend 
+
+  - Backend is a group of endpoints that receive traffic from a Google Cloud load balancer. (e.g. instance groups)
+
+  - So backend is nothing but a managed instance group. If you have microservices architecture, then you can have multiple backends. (e.g. microservice-a-backend service, microservice-b-backend-service, etc.)
+
+
+- Frontend
+
+  - The frontend is nothing but the address at which your cloud load balancer is available. It specifies IP address, port, and protocol. 
+
+  - This IP address is the frontend IP for your clients' requests.
+
+  - If you are using SSL certificate, it must be assigned to the load balancer.
+
+
+- Routing Rules
+
+  - This is specific for HTTP(S) load balancing as it defines rules of redirecting the traffic to different backends.
+
+
+- SSL/TLS Termination and Offloading
+
+  - Assume that you are exposing an app to the Internet. As you want all the communication happening in your app to be secure, HTTPS is recommended.
+
+  - **Client to Load Balancer** communication happens using HTTPS/TLS.
+
+    - SSL termination/offloading happens at the load balancer.
+
+  - **Load Balancer to VM instance** communication happens using HTTP/TCP. 
+
+  - The advantage of going through SSL/TLS termination at the load balancer is reduced load on the instances.
+
+  - With this, the instances don't need to worry about HTTPS or TLS. It can directly handle the request.
