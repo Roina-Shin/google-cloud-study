@@ -185,7 +185,7 @@ gcloud app deploy
 
   - And refresh the **v2** page multiple times, and you see the versions change each time.
 
-  - If you are done with your test and send all the traffic to v3, then run this command:
+  - If you are done with your test and ready to send all the traffic to v3, then run this command:
 
   ```
   gcloud app services set-traffic --splits=v3=1
