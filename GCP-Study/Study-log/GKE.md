@@ -269,6 +269,44 @@ gcloud container clugsters update clusster-name --enable-autoscaling --min-nodes
 
    - **LoadBalancer**: exposes service externally using a cloud provider's load balancer.
 
+     - Use cases: you want to create an individual load balancer for each microservice.
+
    - **NodePort**: exposes service on each node's IP at a static port.
 
-     - Use cases: you don't want to create an external load balancer for each microservice (You can create one Ingress component to load balance multiple microservices.)
+     - Use cases: you **don't** want to create an external load balancer for each microservice (You can create one Ingress component to load balance multiple microservices.)
+
+
+
+ ### Artifact Registry
+
+ - Docker Hub is a public container registry.
+
+ - Artifact Registry can be integrated to CI/CD tools like Cloud Build to publish images to registry.
+
+ - You can secure your container images. You can also analyze images for vulnerabilities and enforce deployment policies.
+
+
+ ### GKE Cluster command line
+
+| Description | Command |
+| ------ | ----------- |
+| Create Cluster   | gcloud container clusters **create** my-cluster --zone us-central1-c --node-location us-central1-c,us-central1-b |
+| Resize Cluster  | gcloud container clusters **resize** my-cluster --node-pool my-node-pool --num-nodes 10 |
+| Autoscale Cluster    | gcloud container clusters **update** cluster-name --enable-autoscaling --min-nodes=1 --max-nodes=3 |
+| Delete Cluster    | gcloud container clusters **delete** my-cluster |
+| Adding Node Pool    | gcloud container **node-pools create** new-node-pool-name --cluster my-cluster |
+| List Images    | gcloud container images list |
+
+
+ ### GKE Workload command line
+
+| Description | Command |
+| ------ | ----------- |
+| List Pods/Service/ReplicaSets   | kubectl **get pods/services/replicasets** |
+| Create Deployment  | kubectl **apply -f deployment.yaml** or kubectl **create deployment** |
+| Create Service    | kubectl **expose deployment** hello-world-rest-api --type=LoadBalancer --port=8080 |
+| Scale Deployment    | kubectl **scale deployment** hello-world-rest-api --replicas=2 |
+| Autoscale Deployment    | kubectl **autoscale deployment** --max=2 --cpu-percent=70 |
+| Delete Deployment    | kubectl **delete deployment** hello-world-rest-api |
+| Update Deployment    | kubectl **apply -f** deployment.yaml |
+| Rollback Deployment    | kubectl **rollout undo deployment** hello-world-rest-api --to-revision=1 |
