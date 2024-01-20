@@ -142,4 +142,130 @@ We'll cover 4 networking cloud services:
 
 
 
- 
+ ## Firewall Rules
+
+ - Configure Firewall Rules to control traffic going in or out of the network:
+
+   - Each firewall rule has priority (0 - 65535) assigined to it.
+
+   - 0 has highest priority. 65535 has lowest priority.
+
+   - There is the default implied rule with lowest priority (65535)
+
+     - allow all egress (from inside the network)
+
+     - deny all ingress
+
+     - default rules cannot be deleted
+
+     - you can override default rules by defining new rules with priority 0-65535
+
+   - In addition to the above default rule, there are 4 default rules with priority 65534
+
+     - allow incoming traffic from VM instances in the same network (default-allow-internal)
+
+     - allow incoming TCP traffic on **port 22 (SSH)** (default-allow-ssh) - Linux machine
+
+     - allow incoming TCP traffic on **port 3389 (Remote Desktop Protocol)** (default-allow-rdp) - Windows machine
+
+     - allow incoming ICMP from any source on the network (default-allow-icmp)
+
+
+   - **Ingress Rules**: incoming traffic from outside to GCP targets
+
+     - **Target (destination)**: all instances or instances with TAG/Service Account
+
+     - **Source (Where the traffic is coming from)**: CIDR or all instances/instances with TAG/SA
+
+   - **Egress Rules**: outgoing traffic to destination from GCP targets
+
+     - **Target (defines the source)**: all instances or instances with TAG/SA
+
+     - **Destination**: CIDR block (specific range of IP addresses)
+
+
+
+ ## Shared VPC
+
+ - Scenario: Your organization has multiple projects. You want resources in different projects to talk to each other.
+
+   - How to allow resources in different projects to talk to each other with internal IPs securely and efficiently?
+
+
+ - **Shared VPC**
+
+   - A shared VPC is created at organization or shared folder level (requiremment: Shared VPC Admin)
+
+   - Allows VPC network to be shared between projects in the same organization.
+
+   - A shared VPC contains one host project and multiple service projects:
+
+     - Host project contains shared VPC network
+
+     - Service projects are attached to host project
+
+   - It helps you achieve **separation of concerns**.
+
+     - Network administrators responsible for Host project and resource users use Service projects
+
+
+  - **VPC Peering**
+
+    - Scenario: How to connect VPC networks across different organizations?
+  
+    - **VPC Peering** allows networks in the same project, different projects, and across projects in different organizations can be **peered**.
+
+    - All communications happen using internal IP addresses.
+
+      - Highly efficient as all communication happens inside Google network.
+
+      - Highly secure as not accessible from Internet.
+
+
+ ## Cloud VPN
+
+ - Cloud VPN - connects on-premise network to the GCP network.
+
+   - Implemented using **IPSec VPN Tunnel**
+
+   - Traffic through Internet (public)
+
+   - However, traffic is encrypted using **Internet Key Exchange** protocol
+
+ - 2 Types of Cloud VPN
+
+   - **HA VPN** (SLA of 99.99% service availability with 2 external IP addresses)
+
+     - High Availability - only dynamic routing (BGP) supported
+
+   - **Classic VPN** (SLA of 99.9% service availability, a single external IP address)
+
+     - Supports both static routing (policy based, route based) and dynamic routing using BGP
+
+
+ ## Cloud Interconnect
+
+ - High speed **physical** connection between on-premise and VPC networks:
+
+   - Highly available and high throughput
+
+   - 2 Types of connections possible
+
+     - Dedicated Interconnect: 10 Gbps or 100 Gbps configurations
+
+     - Partner Interconnect: 50 Gbps to 10 Gbps configurations
+
+
+ - Data exchange happens through a private network:
+
+   - Communicate using VPC nework's internal IP addresses from on-premise network
+
+   - Reduces egress costs
+
+     - As public Internet is not used
+
+ - Supported Google API's and services can be privately accessed from on-premise   
+
+ - Use only for high bandwidth needs:
+
+   - For low bandwidth, Cloud VPN is recommended
