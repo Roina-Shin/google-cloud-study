@@ -233,3 +233,58 @@ gcloud compute routes create <ROUTE-NAME> --network <SOURCE-NETWORK> --next-hop-
 
 
 
+
+
+** **Further study** - why do we use UDP protocol and port 500 / 4500 for the VPN connection?
+
+
+- UDP port 500 is the ISAKMP port for establishing PHASE 1 of IPSEC tunnnel.
+
+ 
+
+VPN-GW1-------nat rtr--------------------------------natrtr----------VPNGW2.
+
+ 
+
+If two vpn routers are behind a nat device or either one of them, then you will need to do NAT traversal which uses port 4500 to successfully establish the complete IPSec tunnel over NAT devices.
+
+
+
+- As stated, UDP 4500 is being used as ESP (IP protocol 50)  packet do not have a layer 4 information. ESP encrypts all critical information for your IPSEC traffic. However, since it doesn't have any layer 4 information (tcp, udp port) it will be dropped by devices that do PAT (packet can't be assigned a unique port and therefore PAT will fail)
+
+
+Nat-t does 2 things
+
+
+1) detect both peers support that function (NAT-T)
+
+2) detect if there is a device in the transmission path that does nat
+
+ 
+
+In simple steps what will happen is that traffic will be encrypted inside the ESP packet  and then the ESP packet will be encapulated inside a UDP/4500 packet. As a result ESP packets can now be translated via a PAT device
+
+
+Please note that you can also use IPSec-over-UDP  or IPSec-over-TCP (work similarly but there are some differences)
+
+
+- Most of the companies in today's date uses PAT to reduce the cost of buying more public IPs, to allow its internal users to access the public Internet. PAT is done on the basis of port numbers, where the source port of the inside traffic is mapped to a different port, so that, all the inside users should be able to access the public Internet with the help of few public IPs.
+
+ 
+
+ESP/AH being a L3 protocol doesn't have a port number, rather it has a protocol number ( IP 50/51 respectively). & if please note that, UDP 500 is for ISAKMP & not for esp/ah. Remember, port number is only for those protocols who has there own transport (L4) mechanism, for example, RIP, BGP.
+
+ 
+
+So, while dealing with NATing device in the transit path of the vpn tunnel, the packet will get dropped if PAT is configured. Therefore, to allow that traffic to pass thru NAT, according to the defined standards, every device should allow & process UDP4500 if NAT-T is detected, & the esp/ah packet is re-encapsulated with the port UDP4500, allowing the esp/ah inside traffic to successfully pass thru tunnel as well as thru NAT, so encryption (traffic thru IPSec tunnel) as well as NATing (hiding the inside IP) is acheived.
+
+ 
+
+And UDP 500 is for ISAKMP which is used to negotiate the IKE Phase 1 in IPSec Site-to-Site vpn & is default port number for isakmp, used when there is no NATing in the transit path of the vpn traffic.
+
+ 
+
+This is why we need UDP 4500.
+
+
+
