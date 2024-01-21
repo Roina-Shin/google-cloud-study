@@ -80,19 +80,19 @@
    - custom-vpc-2 / subnet-us-east1 / IPv4: 10.6.5.0/24
 
 
-![2-vpc-created](/GCP_pictures/Study-logs/Networking-Advanced/2-vpc-created.PNG "2 VPCs created")
+  ![2-vpc-created](/GCP_pictures/Study-logs/Networking-Advanced/2-vpc-created.PNG "2 VPCs created")
 
 
  - Then go to the Compute Engine and create 2 VMs each of which uses different custom VPC networks.
 
 
- [vpn-2-vms-created](/GCP_pictures/Study-logs/Networking-Advanced/vpn-2-vms-created.PNG "For VPN test, 2 VMs created")
+  ![vpn-2-vms-created](/GCP_pictures/Study-logs/Networking-Advanced/vpn-2-vms-created.PNG "For VPN test, 2 VMs created")
 
 
  - To verify the connectivity between the 2 VMs, SSH into one of them and ping the other VM:
 
 
- ![ping-access-denied](/GCP_pictures/Study-logs/Networking-Advanced/ping-access-denied.PNG "Ping access denied")
+  ![ping-access-denied](/GCP_pictures/Study-logs/Networking-Advanced/ping-access-denied.PNG "Ping access denied")
 
 
  - As expected, the VMs cannot communicate with each other using **internal IPs** because they are in different VPCs.
@@ -107,7 +107,7 @@ gcloud compute target-vpn-gateways create central-east-vpn --network <NETWORK-NA
  - Once done, you get the message that the VPN is created:
 
 
-![vpn-created](/GCP_pictures/Study-logs/Networking-Advanced/vpn-1-created.PNG "VPN from central to east is created")
+  ![vpn-created](/GCP_pictures/Study-logs/Networking-Advanced/vpn-1-created.PNG "VPN from central to east is created")
 
 
  - After that, you need to create a **static IP** to attach to your VPN.
@@ -117,7 +117,7 @@ gcloud compute addresses create --region <SUBNET-REGION> <STATIC-IP-NAME>
 ```
 
 
-![static-ip-1-created](/GCP_pictures/Study-logs/Networking-Advanced/static-ip-1-created.PNG "1 Static IP is created")
+  ![static-ip-1-created](/GCP_pictures/Study-logs/Networking-Advanced/static-ip-1-created.PNG "1 Static IP is created")
 
 
 
@@ -129,7 +129,7 @@ gcloud compute addresses create --region <SUBNET-REGION> <STATIC-IP-NAME>
  ```
 
 
-![address-list](/GCP_pictures/Study-logs/Networking-Advanced/address-list.PNG "gcloud compute addresses list")
+  ![address-list](/GCP_pictures/Study-logs/Networking-Advanced/address-list.PNG "gcloud compute addresses list")
 
 
 
@@ -141,7 +141,7 @@ gcloud compute forwarding-rules create <RULE-NAME> --region <STATIC-IP-REGION> -
 ```
 
 
-![forwarding-rule-created](/GCP_pictures/Study-logs/Networking-Advanced/forwarding-rule-created.PNG "Forwarding rule created")
+  ![forwarding-rule-created](/GCP_pictures/Study-logs/Networking-Advanced/forwarding-rule-created.PNG "Forwarding rule created")
 
 
 
@@ -155,7 +155,7 @@ gcloud compute addresses list
  - Then you will see the static IP address is now in use by the VPN we created.
 
 
-![static-ip-address-used-by-vpn](/GCP_pictures/Study-logs/Networking-Advanced/static-address-used-by-vpn.PNG "Static IP address is now in use by the VPN")
+  ![static-ip-address-used-by-vpn](/GCP_pictures/Study-logs/Networking-Advanced/static-address-used-by-vpn.PNG "Static IP address is now in use by the VPN")
 
 
  - Now, we will add another forwarding rule for UDP on port 500:
@@ -166,7 +166,7 @@ gcloud compute forwarding-rules create <RULE-NAME> --region <STATIC-IP-REGION> -
 ```
 
 
-![another-forwarding-rule-created](/GCP_pictures/Study-logs/Networking-Advanced/another-forwarding-rule-created.PNG "Another forwarding rule is created")
+  ![another-forwarding-rule-created](/GCP_pictures/Study-logs/Networking-Advanced/another-forwarding-rule-created.PNG "Another forwarding rule is created")
 
 
 - We will add yet another forwading rule for UDP on port 4500:
@@ -183,9 +183,53 @@ gcloud compute forwarding-rules list
 ```
 
 
-![forwarding-rules-list](/GCP_pictures/Study-logs/Networking-Advanced/forwarding-rules-list.PNG "Forwarding Rules list")
+  ![forwarding-rules-list](/GCP_pictures/Study-logs/Networking-Advanced/forwarding-rules-list.PNG "Forwarding Rules list")
 
 
- - Now, we need to create another VPN for the other VPC network by following the same procedures we took earlier.
+- Now, we need to create another VPN for the other VPC network by following the same procedures we took earlier.
 
- 
+
+- After you have done all the steps, it's time to create **VPN tunnels** for each VPN.
+
+
+```
+gcloud compute vpn-tunnels create <TUNNEL-NAME> --peer-address <STATIC-IP-SECOND-GATEWAY> --region <REGION-FIRST-GATEWAY-SUBNET> --ike-version 2 --shared-secret <SECRET> --target-vpn-gateway <FIRST-VPN> --local-traffic-selector 0.0.0.0/0 --remote-traffic-selector 0.0.0.0/0
+```
+
+
+  ![vpn-tunnel-created](/GCP_pictures/Study-logs/Networking-Advanced/vpn-tunnel-created.PNG "VPN tunnel created for VPN 1")
+
+
+- Do the same thing to create the other VPN tunnel for VPN 2.
+
+
+  ![2-tunnels-created](/GCP_pictures/Study-logs/Networking-Advanced/2-tunnels-created.PNG "2 VPN tunnels created on GCP console")
+
+
+- Finally, we need to create **routes** for the traffic between the 2 VPNs to follow.
+
+
+```
+gcloud compute routes create <ROUTE-NAME> --network <SOURCE-NETWORK> --next-hop-vpn-tunnel <FIRST-TUNNEL> --next-hop-vpn-tunnel-region <FIRST-TUNNEL-REGION> --destination-range <SECOND-NETWORK-SUBNET>
+```
+
+
+  ![vpn-route-created](/GCP_pictures/Study-logs/Networking-Advanced/vpn-route-created.PNG "VPN route created for VPN 1")
+
+
+- Likewise, do the same thing to create the VPN route for VPN 2.
+
+
+  ![vpn-route-2](/GCP_pictures/Study-logs/Networking-Advanced/vpn-route-2.PNG "VPN route 2 created for VPN 2")
+
+
+
+- Now, all preparations are done for the 2 instances in different VPCs to communicate with each other!
+
+- Go to VM instances and SSH into one of them.
+
+
+  ![ping-successful](/GCP_pictures/Study-logs/Networking-Advanced/ping-successful.PNG "Ping is successful!")
+
+
+
