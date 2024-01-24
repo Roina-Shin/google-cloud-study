@@ -59,7 +59,7 @@
 - Register these 4 name server addresses on your domain site.
 
 
-![ns-record-registration](/GCP_pictures/Study-logs/Networking-Advanced4/ns-record-registration.PNG "NS Record registration")
+![nameservers-registration](/GCP_pictures/Study-logs/Networking-Advanced4/nameservers-registration.PNG "Nameservers registration")
 
 
 - Now, we also need to create A Record and CNAME Record on our zone. Provide the IP address for each record.
