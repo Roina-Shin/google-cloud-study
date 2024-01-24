@@ -65,7 +65,7 @@ echo "Hello world from $(hostname) $(hostname -I)" > /var/www/html/index.html
 
 - The Application Layer is on the top of the chain. This is where we build most of our applications. We make REST API calls and send emails at the Application Layer.
 
-- **(Remember)** Each layer makes use of the layers it. So when we make an HTTP request, it makes use of the TCP protocol in the Transport Layer and the IP protocol in the Network Layer.
+- **(Remember)** Each layer makes use of the layers beneath it. So when we make an HTTP request, it makes use of the TCP protocol in the Transport Layer and the IP protocol in the Network Layer.
 
 - **(Remember)** Most applications communicate at the Application Layer. But some high-performance applications like gaming or streaming applications directly talk at the Transport Layer.
 
