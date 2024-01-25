@@ -1,70 +1,95 @@
 ### [Source of this study material : Google Cloud Professional Network Engineer by Ankit Mistry](https://www.udemy.com/course/google-cloud-networking/)
 
 
-## Load Balancer
+## Deploy Cloud Run
 
-- **Load balancer** distributes user traffic across multiple instances of your applications.
-
-- By spreading the load, load balancer reduces the risk that your applications experience performance issues.
+- First go to Cloud Run and click Create Service.
 
 
-## Cloud DNS
-
-- To test the Cloud DNS service, I created a Hello Cloud Run service and the corresponding Load Balancer for the service.
+![create-cloud-run](/GCP_pictures/Study-logs/Networking-Advanced4/ "Create a Cloud Run default service")
 
 
-![hellow-cloud-run](/GCP_pictures/Study-logs/Networking-Advanced4/hello-cloud-run.PNG "Hello Cloud Run service")
+- Now, our backend service (Cloud Run service) is ready. It's time to connect this particular service to a load balancer.
+
+
+- Go to Load Balancing of Network Services and click Create a load balancer. Go with the HTTP(S) Load Balancer. 
+
+
+- We want an outside traffic to the service so choose Internet facing one and continue with the Global load balancer.
+
+
+- Start with the Backend configuration.
+
+
+![backend-config](/GCP_pictures/Study-logs/Networking-Advanced4/backend-config.PNG "Backend configuration")
+
+
+- Configure frontend and routing rules and click create.
+
+
+![other-config](/GCP_pictures/Study-logs/Networking-Advanced4/other-config.PNG "Ohter configuration")
+
+
+- When a load balancer is ready, go to the details page and grab the IP address and check if it works on the browser.
+
+
+![load-balancer-created](/GCP_pictures/Study-logs/Networking-Advanced4/load-balancer-created.PNG "Load Balancer created")
+
+
+- And it is working. 
+
+
+![working](/GCP_pictures/Study-logs/Networking-Advanced4/working.PNG "Load Balancer working")
 
 
 
-![lb-for-cloud-run](/GCP_pictures/Study-logs/Networking-Advanced4/lb-for-cloud-run.PNG "Load Balancer for Cloud Run")
+- Now, it's time to connect your domain that you bought from a domain site with the Google Cloud DNS.
 
 
-- DNS is an Address Book for Internet.
-
-- It maps a particular domain (www.google.com) to an IP address (74.125.29.101).
-
-- Highly scalable, reliable and managed Domain Name System (DNS) service on GCP.
-
-- Cloud DNS
-
-  - Public zone
-
-  - Private zone
+![cloud-dns](/GCP_pictures/Study-logs/Networking-Advanced4/create-dns-zone.PNG "Create a DNS zone")
 
 
-- So, in the above Load Balancer example, we have this particular IP address (35.190.115.250) but we want to map this to a meaningful domain name.
+- Click create Public DNS zone and put int the Zone name and DNS name accordingly.
 
 
-- First, to use Google Cloud DNS service, you need to buy a domain from the domain site. I already bought one:
+![zone-creation](/GCP_pictures/Study-logs/Networking-Advanced4/zone-creation.PNG "Zone creation")
 
 
-![domain-purchase](/GCP_pictures/Study-logs/Networking-Advanced4/domain-purchase.PNG "Domain purchase")
+- When you create a zone, 2 records are automatically made available. Go to NS record section.
 
 
-- Then, go to GCP console and head over to Cloud DNS.
-
-- Click Create Zones and configure Zone name and DNS name in the format that Google requires:
+![ns-records](/GCP_pictures/Study-logs/Networking-Advanced4/ns-records.PNG "NS records")
 
 
-![create-zone](/GCP_pictures/Study-logs/Networking-Advanced4/create-zone.PNG "Create a zone")
+- Go to the domain site and edit the nameservers so that the site includes these 4 nameservers from Google Cloud DNS.
 
 
-- Now, the zone is created. If you take a look at the NS record, you can see there are 4 name servers that you need to register on your domain site.
+![nameservers](/GCP_pictures/Study-logs/Networking-Advanced4/edit-nameservers.PNG "Edit Nameservers")
 
 
-![name-server](/GCP_pictures/Study-logs/Networking-Advanced4/ns-server.PNG "NS Record -name servers")
+- After done, you will see these updated nameserver on the domain site.
 
 
-- Register these 4 name server addresses on your domain site.
+![nameservers-updated](/GCP_pictures/Study-logs/Networking-Advanced4/nameservers-updated.PNG "Nameservers updated")
 
 
-![nameservers-registration](/GCP_pictures/Study-logs/Networking-Advanced4/nameservers-registration.PNG "Nameservers registration")
+- Now, we need to do 2 important configuration on Google Cloud side: A record and CName record. Go back to the Cloud DNS and click Add record.
 
 
-- Now, we also need to create A Record and CNAME Record on our zone. Provide the IP address for each record.
+![a-record](/GCP_pictures/Study-logs/Networking-Advanced4/a-record-creation.PNG "A record creation")
 
 
-![cname-record-creation](/GCP_pictures/Study-logs/Networking-Advanced4/cname-record-creation.PNG "CNAME Record registration")
+- Keep the DNS name as is and select **A record**. Provide the IP address without the port number and protocol to it.
+
+
+- CNAME creation is a little different. If someone types **www.learngcpwithyejin.site**, the CNAME helps you redirect the traffic to the canonical domain name **learninggcpwithyejin.site**. Configure it accordingly.
+
+
+![cname-record](/GCP_pictures/Study-logs/Networking-Advanced4/cname-creation.PNG "CNAME creation")
+
+
+
+
+
 
 

@@ -41,7 +41,7 @@
 - Now, as the Owner of this project, we want to provide another user with IAM role so that he/she can access this VM without external IP.
 
 
-- Go to IAM and click Grand Access. You need to add a new principal (gatsbyflight@gmail.com) and assign him 2 new roles: **Compute Instance Admin** and **Service Account User** roles.
+- Go to IAM and click Grant Access. You need to add a new principal (gatsbyflight@gmail.com) and assign him 2 new roles: **Compute Instance Admin** and **Service Account User** roles.
 
 
 - If you don't assign a service account user role, then the user will get this permission deny message when he tries to SSH into the VM.
