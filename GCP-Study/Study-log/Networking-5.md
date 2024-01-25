@@ -6,7 +6,7 @@
 - First go to Cloud Run and click Create Service.
 
 
-![create-cloud-run](/GCP_pictures/Study-logs/Networking-Advanced4/ "Create a Cloud Run default service")
+![create-cloud-run](/GCP_pictures/Study-logs/Networking-Advanced4/create-cloud-run.PNG "Create a Cloud Run default service")
 
 
 - Now, our backend service (Cloud Run service) is ready. It's time to connect this particular service to a load balancer.
@@ -98,6 +98,15 @@
 
 
 ![lb-with-https](/GCP_pictures/Study-logs/Networking-Advanced4/lb-with-https.PNG "LB with HTTPS")
+
+
+- And beware that you **should use the same static IP** for the HTTPS that you used for the HTTP frontend. I previously made a mistake to create a load balancer with an ephemeral IP that I reserved a new static IP and re-configured the HTTP and the Clud DNS settings as well. **Don't make this mistake again!!**.
+
+
+- After some couple hours, the secure HTTPS domain also works!
+
+
+![https-works](/GCP_pictures/Study-logs/Networking-Advanced4/https-works.PNG "Secure HTTPS works!")
 
 
 
