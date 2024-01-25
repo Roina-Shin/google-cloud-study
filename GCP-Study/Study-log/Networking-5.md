@@ -24,7 +24,7 @@
 ![backend-config](/GCP_pictures/Study-logs/Networking-Advanced4/backend-config.PNG "Backend configuration")
 
 
-- Configure frontend and routing rules and click create.
+- Configure frontend and routing rules and click create. **WARNING**: And very important thing I missed in the below pic is that I chose ephemeral IP address for the load balancer. But you **should** go with the static IP address for your frontend service. Else, the other configuration in the Cloud DNS, etc will be affected as well.
 
 
 ![other-config](/GCP_pictures/Study-logs/Networking-Advanced4/other-config.PNG "Ohter configuration")
@@ -86,6 +86,22 @@
 
 
 ![cname-record](/GCP_pictures/Study-logs/Networking-Advanced4/cname-creation.PNG "CNAME creation")
+
+
+- After couple hours, if you check the domain, you can see that the Google Cloud Run service is now running in that domain.
+
+
+![domain-running](/GCP_pictures/Study-logs/Networking-Advanced4/domain-running.PNG "Domain running!")
+
+
+- But as you see, the site is **not secure**. So we are going to add HTTPS frontend to the **load balancer**. Configure your load balancer's frontend to have a HTTPS protocol so that it supports a secure connection.
+
+
+![lb-with-https](/GCP_pictures/Study-logs/Networking-Advanced4/lb-with-https.PNG "LB with HTTPS")
+
+
+
+
 
 
 
