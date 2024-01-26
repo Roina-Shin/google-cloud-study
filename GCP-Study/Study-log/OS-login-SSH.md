@@ -1,6 +1,6 @@
 ## OS Login Setup
 
-- **OS Login** is a feature through which you can SSH into your virtual machine on your local system or in the other projects that you do not own without generating public SSH keys.
+- **OS Login** is a feature through which you can SSH into your virtual machine on your local system or outside the project where the VM operates without generating public SSH keys.
 
 
 1. In your project, go to the IAM section and click Service Accounts.
