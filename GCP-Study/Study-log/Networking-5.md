@@ -1,7 +1,7 @@
 ### [Source of this study material : Google Cloud Professional Network Engineer by Ankit Mistry](https://www.udemy.com/course/google-cloud-networking/)
 
 
-## Deploy Cloud Run
+## Deploy Cloud Run and Configure Cloud DNS
 
 - First go to Cloud Run and click Create Service.
 
