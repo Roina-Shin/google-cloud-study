@@ -36,7 +36,7 @@
 ![service-account-user](/GCP_pictures/Study-logs/os-login/service-account-user.PNG "Service account user")
 
 
-7. You can either test the SSH into the VM with the Cloud Shell in the other project with tne new user identity or with the Google Cloud SDK with the new user identity. Either way it works.
+7. You can test the SSH into the VM by using the Google Cloud SDK with the new user identity.
 
 
 8. This is the command you need to use in either of the shell:
@@ -50,8 +50,3 @@ gcloud compute ssh --project [project-name]  --zone [your-vm-zone]  [your-vm-nam
 ![gcloud-sdk-demo](/GCP_pictures/Study-logs/os-login/gcloud-sdk-demo.PNG "OS Login successful with Google Cloud SDK")
 
 
-
-9. It also works in the Cloud Shell of the other project where the new user has the Editor role:
-
-
-![cloud-shell-oslogin](/GCP_pictures/Study-logs/os-login/cloud-shell-oslogin.PNG "OS Login successful with Cloud Shell in the other project")
