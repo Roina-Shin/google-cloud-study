@@ -10,7 +10,7 @@
   - Dockerfile
 
 
-  - **server.js**
+- **server.js**
 
 ```
 var http = require('http');
@@ -22,7 +22,7 @@ var www = http.createServer(handleRequest);
 www.listen(8080);
 ```
 
-  - **Dockerfile**
+- **Dockerfile**
 
 ```
 FROM node:21-alpine2.18
