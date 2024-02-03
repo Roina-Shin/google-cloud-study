@@ -6,7 +6,7 @@
 - Fully managed **relational database services** for MySQL, PostgreSQL, SQL Server.
 
 
-## Cloud SQL
+## How to use Cloud SQL
 
 - Go to Cloud SQL on the GCP console and choose MySQL.
 
