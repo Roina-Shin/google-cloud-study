@@ -79,31 +79,3 @@
 
 ![wordcount-result](/GCP_pictures/Study-logs/dataflow/wordcount-result.PNG "Wordcount result")
 
-
- ## How to use Dataflow with Notebook instance
-
-
-- Go to Dataflow and click Workbench and create an instance.
-
-
-![notebook-instance](/GCP_pictures/Study-logs/dataflow/notebook-instance.PNG "Notebook instance")
-
-
-- After creating the instance, click **Open Jupyterlab**.
-
-
-![open-notebook](/GCP_pictures/Study-logs/dataflow/notebook-open.PNG "Open Jupyyerlab")
-
-
-- By default, Apache Beam and GCP extensions are already installed in this instance.
-
-
-![notebook-opened](/GCP_pictures/Study-logs/dataflow/notebook-opened.PNG "Notebook opened")
-
-
-- Create a brand new notebook. File > New > Notebook. And use Apache Beam notebook.
-
-
-![new-notebook](/GCP_pictures/Study-logs/dataflow/new-notebook.PNG "New notebook created")
-
-
