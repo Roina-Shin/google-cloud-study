@@ -56,7 +56,7 @@ storage.googleapis.com
 
 
 
-- We will endit the subnet where the VM resides in. So that the Private Google Access is on.
+- We will edit the subnet where the VM resides in. So that the Private Google Access is on.
 
 
 ![private-google-access-on](/GCP_pictures/Study-logs/private-google-access/private-google-access-on.PNG "Private Google Access on")

@@ -72,7 +72,6 @@ db_name = 'yejindb'
 db_connection_name = 'my-vpn-router-project:us-east1:private-service-access-demo'
 host = '10.76.64.3'
 
-@functions_framework.http
 def svpc_fun(request):
     """HTTP Cloud Function.
     Args:
