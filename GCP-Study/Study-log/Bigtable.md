@@ -126,7 +126,7 @@ cbt createtable yejin-cbt-table
 ![edit-table](/GCP_pictures/Study-logs/bigtable-structure/bigtable-add-column.PNG "Edit table")
 
 
-- Above in the picture, the garbage collection policy is like a versioning of your data. So, with RDBMS system, you just update your data and the oloder version is wiped out. But in Bigtable, you can set your older version of data to be stored using this feature.
+- Above in the picture, the garbage collection policy is like a versioning of your data. So, with RDBMS system, you just update your data and the older version is wiped out. But in Bigtable, you can set your older version of data to be stored using this feature.
 
 
 - To list the table and its column family, you can use the following commands:
