@@ -1,6 +1,16 @@
 ### [Source of this study material : Google Cloud Professional Network Engineer by Ankit Mistry](https://www.udemy.com/course/google-cloud-networking/)
 
 
+## Identity Aware Proxy Best Practice
+
+- Using the gcloud compute ssh command with the --tunnel-through-iap flag leverages Google Cloud's Identity-Aware Proxy (IAP) for secure SSH access. 
+
+- IAP provides an additional layer of security by requiring user authentication and authorization before granting access to the instances. 
+
+- Allowing ingress traffic from the **IP range 35.235.240.0/20 on port 22** ensures that only traffic from Google's IAP service is allowed to reach the instances, enhancing security.
+
+
+
 ## Identity Aware Proxy Demo Order
 
 - SSH with just a private IP

@@ -1,6 +1,19 @@
 ### [Source of this study material : Google Cloud Professional Network Engineer by Ankit Mistry](https://www.udemy.com/course/google-cloud-networking/)
 
 
+## A record | CNAME record | NS record
+
+- **A record** is used to map a domain name to an IPv4 address. 
+
+- By creating one A record to point mydomain.com to the IP address of the load balancer, you ensure that mydomain.com resolves to the correct IP. 
+
+- To point home.mydomain.com and www.mydomain.com to the same IP address, you can create **CNAME records**. 
+
+- **CNAME records** are used to create an alias for a domain name. By creating two CNAME records, one for home.mydomain.com and one for www.mydomain.com, both pointing to mydomain.com, you can redirect these subdomains to the same IP address as mydomain.com.
+
+- **NS (Name Server) records** are used to delegate DNS authority to other name servers, like Google Cloud DNS.
+
+
 ## Deploy Cloud Run and Configure Cloud DNS
 
 - First go to Cloud Run and click Create Service.
