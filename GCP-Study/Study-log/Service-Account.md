@@ -241,7 +241,7 @@ gcloud compute instances list --project [project name] --impersonate-service-acc
 - If you open the file, you can see the service account email and the private key itself.
 
 
-- Now go to your **personal GCP account** and open one project to start a Cloud Shell.
+- Now go to your **personal GCP account** and open one project to start a cloud shell.
 
 
 - First, unset the project inside the cloud shell:
@@ -260,7 +260,6 @@ gcloud config unset project
 
 ```
 gcloud auth list
-
 ```
 
 
