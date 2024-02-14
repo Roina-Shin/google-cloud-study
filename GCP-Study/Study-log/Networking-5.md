@@ -14,6 +14,7 @@
 - **NS (Name Server) records** are used to delegate DNS authority to other name servers, like Google Cloud DNS.
 
 
+
 ## Deploy Cloud Run and Configure Cloud DNS
 
 - First go to Cloud Run and click Create Service.
