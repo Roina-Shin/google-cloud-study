@@ -168,3 +168,47 @@
 ![ping-works](/GCP_pictures/Study-logs/cloud-vpn/ping-works.PNG "Ping works")
 
 
+
+## Static Routing Demo
+
+- For this demo, we will add a new subnet to one of the VPCs. And create a new VM in that subnet and test the connectivity with the VM in other VPC.
+
+
+- Then we will set up a static route for the subnet and test the connectivity again.
+
+
+- In my case, I already have the other subnet in the US VPC, so I will use this subnet to create a new VM.
+
+
+![new-subnet](/GCP_pictures/Study-logs/cloud-vpn/new-subnet.PNG "New subnet")
+
+
+- I have created a VM in other subnet and SSH into it. If you try to ping the VM in other VPC, it doesn't work. Even if we already set up the VPN connection between 2 networks, the new subnet range should be manually added to **the route in the other network**.
+
+
+![ping-fail](/GCP_pictures/Study-logs/cloud-vpn/ping-fail.PNG "Ping fails")
+
+
+- It is because we chose **Route-based routing option** and specified the **remote network IP range** for just one subnet during our VPN setup.
+
+
+- Now, go to the Seoul network's project and create a new route for the new subnet in the US network.
+
+
+![new-route](/GCP_pictures/Study-logs/cloud-vpn/add-new-route.PNG "Add new route")
+
+
+- Immediately after we added the new route, the ping from the US new subnet to the Seoul VM works.
+
+
+![ping-now-works](/GCP_pictures/Study-logs/cloud-vpn/ping-now-works.PNG "Ping now works")
+
+
+
+
+
+
+
+
+
+
