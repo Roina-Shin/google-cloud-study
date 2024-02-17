@@ -79,5 +79,3 @@
 
 
 ![demo-ending](/GCP_pictures/Study-logs/cloud-interconnect/demo-ending.PNG "Demo ending")
-
-
