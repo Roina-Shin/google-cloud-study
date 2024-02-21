@@ -116,7 +116,7 @@ uname -a
 
  3. Commited Use Discounts
 
- 4. Disky Types
+ 4. Disk Types
 
 
 ### Scheduled Shutdown
