@@ -704,7 +704,7 @@ metadata:
   name: myapp1-deployment
 spec:
   replicas: 2
-  selectors:
+  selector:
     matchLabels:
       app: myapp1
   template:
@@ -850,7 +850,6 @@ spec:
 - Finally, we cannot connect to ClusterIP services directly from Internet to test headless service concept.
 
 
-- We will deploy a **curl pod** in GKE cluster so we can connect to curl pod in GKE cluster and test the headless service concept.
 
 
 
