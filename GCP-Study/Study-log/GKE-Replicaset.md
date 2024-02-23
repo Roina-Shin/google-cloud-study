@@ -188,6 +188,9 @@ kubectl expose rs [replicaset-name] --type=LoadBalancer --port=80 --target-port=
 ![availability](/GCP_pictures/Study-logs/gke-replicaset/availability.PNG "availability")
 
 
+- As we set the number of replicas as **3** in the yaml file, the replicaset ensures that we always have 3 pods at any point.
+
+
 
 
 
