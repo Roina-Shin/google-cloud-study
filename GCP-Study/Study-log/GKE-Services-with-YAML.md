@@ -780,7 +780,7 @@ gcloud compute firewall-rules list
 
 
 
-- You can create the firewall rule by running this command:
+- You can create the firewall rules by running this command:
 
 
 ```
