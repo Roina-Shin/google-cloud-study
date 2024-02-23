@@ -22,12 +22,6 @@
 
 ## GKE Autopilot Cluster Demo
 
-- For this demo, we are going to create a **private autopilot cluster** in the us-central1 region. So for Internet communication, we need a **Cloud NAT** in us-central1 region ready.
-
-
-![cloud-nat-ready](/GCP_pictures/Study-logs/gke-autopilot-cluster/cloud-nat-ready.PNG "Cloud NAT ready")
-
-
 - Now, let's create an autopilot cluster.
 
 
