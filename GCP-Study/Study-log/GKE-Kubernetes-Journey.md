@@ -275,3 +275,23 @@ spec:
             serviceName: currency-conversion
             servicePort: 8100
 ```
+
+
+- Recommended approach for providing external access to services in a cluster.
+
+
+- **Ingress** provides load balancing and SSL termination.
+
+
+- You can control traffic by defining rules on the Ingress resource.
+
+
+- For example, any request for **/currency-exchange/** path will be sent to this **currency-exchange** service at the service port **8000**.
+
+
+- **Recommendation**: NodePort service for each microservice. Expose using an **Ingress**.
+
+
+- **IMPORTANT**: If you have 15 or more microservices, it will be difficult to create 15 LoadBalancer services for each microservice. Instead, you can use Ingress that has **a single load balancer** and send the request to each microservice based on the path.
+
+
