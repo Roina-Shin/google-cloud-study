@@ -1,4 +1,4 @@
-### [Source of this study material : Google Cloud Deployment Mnager by Jose Portilla](https://www.udemy.com/course/google-cloud-deployment-manager/)
+### [Source of this study material : Google Cloud Deployment manager by Jose Portilla](https://www.udemy.com/course/google-cloud-deployment-manager/)
 
 
 ## Deployment Manager Demo
@@ -39,7 +39,6 @@ gcloud config set project [project id]
 
 
 ```
-resources:
 resources:
   - type: compute.v1.instance
     name: quickstart-deployment-vm
@@ -158,7 +157,7 @@ gcloud deployment-manager deployments delete [deployment-name]
 
 ## Creating Configuration YAML File
 
-- Configuration files are at the core of Google Cloud Deployment Mnager.
+- Configuration files are at the core of Google Cloud Deployment manager.
 
 
 - Configuration File Structure
@@ -250,9 +249,6 @@ gcloud deployment-manager deployments cancel-preview [deployment name]
 
 
 - Explore some pages after pages until you see the page that is actually linked to **creating a bucket**.
-
-
-![API for creating a bucket](https://cloud.google.com/storage/docs/json_api/v1/buckets)
 
 
 - And then compare the GCP console bucket creation page and the documentation so that what configuration elements you need to define in your file:
