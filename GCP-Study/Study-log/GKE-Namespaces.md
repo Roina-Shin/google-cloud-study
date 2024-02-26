@@ -61,3 +61,26 @@ kubectl apply -f [file name] --namespace=[namespace name]
 ![deploy-with-namespace](/GCP_pictures/Study-logs/gke-namespaces/deploy-with-namespace.PNG "Deploy with namespace")
 
 
+
+## Understanding Service Discovery - Namespaces and DNS
+
+- Microservices need to talk to each other.
+
+
+- But you don't want to **hardcode the URL** of a microservice.
+
+
+- How can a service in Kubernetes cluster talk to another service in the same Kubernetes cluster without hardcoding the URL?
+
+
+- Use **Service Discovery** feature provided by Kubernetes.
+
+
+- **Fully qualified domain name (FQDN)** - {service-name}.{namespace-name}.svc.cluster.local
+
+
+- **★★★★If you have services 'microservice-1' and 'microservice-2' in the same namespace**, they can talk to each other just by using their service names. (http://microservice-1, http://microservice-2)
+
+
+- **★★★★But if you have 2 different services in 2 different namespaces**, then you can use this **{service-name}.{namespace-name}.svc.cluster.local** to talk to each other.
+
