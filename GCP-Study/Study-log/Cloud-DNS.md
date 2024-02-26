@@ -124,6 +124,35 @@
 
 
 
+## Cloud DNS - CLI
+
+### gcloud dns managed-zones create ZONE_NAME
+
+--description (REQUIRED - short description for the managed zone)
+
+--dns-name (REQUIRED - CNS name suffix (e.g. yejingcp.site) that will be managed with the created zone)
+
+--visibility (private/**public**)
+
+--networks (list of networks that the zone should be visible in if the zone visibility is [private])
+
+
+### Three steps to add records to a managed zone
+
+- **Start transaction for zone**
+
+
+```
+gcloud dns record-sets transaction start --zone
+```
+
+
+- **Make changes**
+
+
+```
+gcloud dns record-sets transaction add --name=REC_NAME --ttl --type A/CNAME --zone=ZONE_NAME 
+```
 
 
 
