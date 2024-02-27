@@ -879,10 +879,10 @@ GET http://wwww.nkptech.com/v1/technology/findjobs?skill=apigee
 | = | Equals |
 | !=    | NotEquals |
 | :=    | EqualsCaseInsensitive |
-| > or <&gt;>    | GreaterThan |
-| >= or <&gt;=>    | GreaterThanOrEquals |
-| <&lt;>    | LesserThan |
-| <&lt;=>    | LesserThanOrEquals |
+| > or & gt ;  | GreaterThan |
+| >=  or & gt ;= | GreaterThanOrEquals |
+| & lt ;  (without space)   | LesserThan |
+| & lt ;=  (withut space)  | LesserThanOrEquals |
 | &&    | And, and |
 | ||    | Or |
 | ~    | Matches, Like |
