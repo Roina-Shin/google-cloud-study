@@ -209,6 +209,16 @@ gcloud compute instances attach-disk INSTANCE_NAME --disk DISK_NAME
 ```
 
 
+- After that, you should format the disk. Format it to the file format of your choice (e.g. ext4 file system):
+
+
+```
+sudo lsblk
+
+sud mkfs.ext4 -m 0 -E lazy_itable_init=0, lazy_journal_init=0, discard /dev/sdb
+```
+
+
 - **Linux Standard File System**
 
 
@@ -217,3 +227,23 @@ gcloud compute instances attach-disk INSTANCE_NAME --disk DISK_NAME
 | ext4   | Most popular standard file system for Linux. |
 | btrfs | Relatively new and supports copy-on-write. |
 | ext    | Standard file system and default for Red Hat 7. Supports metadata journaling so quicker crash recovery |
+
+
+- And then, you can mount the disk. Create a directory to mount to and mount the disk there.
+
+
+```
+sudo mkdir -p /mnt/disks/MY_DIR
+
+sudo mount -o discard,defaults /dev/sdb /mnt/disks/MY_DIR
+```
+
+
+- Once you mount the disk, you can provide permissions to that.
+
+
+```
+chmod a+w /mnt/disks/MY_DIR
+```
+
+
