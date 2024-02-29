@@ -247,3 +247,98 @@ chmod a+w /mnt/disks/MY_DIR
 ```
 
 
+## Playing with Machine Images
+
+- Machine Image is different from Image
+
+  - An image is created from the **boot persistent disk**
+
+  - Multiple disks can be attached with a VM:
+
+    - One boot dis (Your OS runs from Boot Disk)
+
+    - Multiple data disks
+
+  - HOWEVER, Machine Image is created from a VM instance.
+
+     - Machine image contains everything you need to create a VM instance.
+
+       - Configuration
+
+       - Metadata
+
+       - Permissions
+
+       - Data from one or more disks
+
+
+  
+- You can create a machine image by clicking three dots beside your VM instance.
+
+
+![create-new-machine-image](/GCP_pictures/Study-logs/block-and-file-storge/create-new-machine-image.PNG "Create a new machine image")
+
+
+
+- Here's the table that shows when to use machine images.
+
+
+![when-to-use-machine-images](/GCP_pictures/Study-logs/block-and-file-storge/when-to-use-machine-image.PNG "When to use machine images")
+
+
+
+## Filestore
+
+- Filestore is a shared cloud file storage.
+
+
+- It supports NFSv3 protocol
+
+
+- Suitable for high performance workloads:
+
+  - Up to 320 TB with throughput 16 GB/S and 480K IOPS
+
+
+- Supports storage types including HDD (general purpose) and SSD (performance-critical workloads)
+
+
+- **Use cases**: file share, media workflows, and content management
+
+
+## Global, Regional, Zonal Resources
+
+- **Global**
+
+  - Images
+
+  - Snapshots
+
+  - Instance templates
+
+
+- **Regional**
+
+  - Regional managed instance groups
+
+  - Regional persistent disks
+
+
+- **Zonal**
+
+  - Zonal managed instance groups
+
+  - Instances
+
+  - Persistent disks
+
+    - You can attach a disk only to instances in the same zone as the disk
+
+
+
+| Solution | Scenario |
+| ------:| -----------:|
+| Local SSDs   | You want very high IOPS but your data can be lost wihout a problem. |
+| Filestore | You want to create a high performance file sharing system in GCP which can be attached with multiple VMs. |
+| Create a Machine Image   | You want to backup your VM configuration along with all its attached persistent disks. |
+| Create a Custom Image    | You want to make it easy to launch VMs with hardened OS and customized software. |
