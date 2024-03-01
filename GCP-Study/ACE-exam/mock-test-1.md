@@ -239,3 +239,10 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 - Granting the **Storage Object Viewer** IAM role to the service account used by the Kubernetes nodes allows them to have read access to the container images in the central project's Container Registry.
 
 
+
+### 6. Create a DaemonSet in the kube-system namespace of the cluster using the Deployment Manager Template.
+
+- CASE: You are working on a Deployment Manager template and configure GCP resources. You want to create a DeamonSet in the kube-system namespace of the cluster using the Deployment Manager template.
+
+
+- Solution: Add the cluster's API as a new Type Provider in Deployment Manager, and use the new tye to create the Deamonset.
