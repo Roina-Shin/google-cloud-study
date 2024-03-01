@@ -152,3 +152,49 @@ rules:
     reources: ["secrets"]
     verbs: [""get", "watch", "list"]
 ```
+
+
+- **ClusterRole** represents allowed permissions in a cluster.
+
+
+
+- **Kubernetes RBAC - RoleBinding and ClusterRoleBinding**
+
+
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding # RoleBinding or ClusterRoleBinding
+metadata:
+  name: edit-configmaps
+  namespace: default
+subjects:
+  - kind: User # Google Cloud User account
+    name: yejinshin@yejin-cloud-study.site
+  - kind: ServiceAccount # Kubernetes service account
+    name: kubernetes-service-account-name
+  - kind: User # IAM service account
+    name: iam-service-account@PROJECT-ID.google.com.iam.gserviceaccount.com
+roleRef:
+  kind: Role # Role or ClusterRole
+  name: all-configmaps-editor-role
+```
+
+
+
+## Understanding Kubernetes Security Best Practices
+
+- Enable Node Auto-Upgrade for GKE nodes.
+
+
+- Use shielded GKE nodes with secure boot.
+
+
+- Enable workload identity.
+
+  - Use Workload identity to provide microservices specific accesses.
+
+
+- Use namespaces and **RBAC** to restrict user access to cluster resources.
+
+
+- Use Kubernetes secrets or Secret Manager for secret management.
