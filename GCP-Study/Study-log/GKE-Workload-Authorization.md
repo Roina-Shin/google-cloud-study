@@ -198,3 +198,16 @@ roleRef:
 
 
 - Use Kubernetes secrets or Secret Manager for secret management.
+
+
+
+## Authorization for Kubernetes - Scenarios
+
+
+| Solution | Scenarios |
+| ------:| -----------:|
+| Workload Identity   | Your microservice is going to be deployed to GKE. You want to give each microservice specific access to Google Cloud resources. |
+| Node Pool Service Account | Your microservice is going to be deployed in GKE. You want to give common permissions to Cloud Logging and Cloud Monitoring. |
+| Kubernetes RBAC    | You are sharing GKE cluster between different teams. You want to ensure that each team has access to deploy only to their specific namespaces. |
+| Kubernetes Engine Admin    | Which role gives you complete access to GKE clusters and the Kubernetes API objects? |
+| Check if IAM has the permission - **container.clusters.get**    | You are assigned permissions using Kubernetes RBAC. But you are unable to access the cluster. |
