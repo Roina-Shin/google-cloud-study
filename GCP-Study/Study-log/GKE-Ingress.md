@@ -15,6 +15,9 @@
 ![ingress-sample](/GCP_pictures/Study-logs/gke-ingress/ingress-sample.PNG "Ingress sample")
 
 
+- It is now **spec.ingressClassName: "gce"**. kubernetes.io/ingress.class: "gce" is now deprecated.
+
+
 - Types of Ingress Class
 
   - **External Ingress** ("gce")
