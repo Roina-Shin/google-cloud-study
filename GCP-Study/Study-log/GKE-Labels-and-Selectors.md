@@ -261,6 +261,43 @@ spec:
 
 
 
+- It also applies to the deployment YAML:
+
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-3-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp3
+  template:
+    metadata:
+      name: myapp3-pod
+      labels:
+        app: myapp3
+    spec:
+      containers:
+        - name: myapp3-container
+          image: stacksimplify/kubenginx:3.0.0
+          ports:
+            - containerPort: 80
+      nodeSelector:
+        depart: marketing    
+```
+
+
+- After creating the deployment, you can see that all 3 pods are running in the same node that has the same nodeSelector label specified in the deployment YAML.
+
+
+![node-for-deployment](/GCP_pictures/Study-logs/gke-labels-and-selectors/node-for-deployment.PNG "Node for deployment")
+
+
+
+
 
 
 
