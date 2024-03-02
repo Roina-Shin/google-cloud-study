@@ -246,3 +246,17 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 
 
 - Solution: Add the cluster's API as a new Type Provider in Deployment Manager, and use the new tye to create the Deamonset.
+
+
+
+### 7. Command like for only enabled APIs in a Project
+
+- CASE: You need the list of the enabled Google Cloud Platform APIs for your GCP project. How can you use the command line to do it?
+
+
+- Solution: Run **gcloud services list --project <project ID>** to list only the enabled APIs in the project. You can choose the mode in which the command will list services by using exactly one of the **--enabled** or **--available** flags. **--enalbed** is the default. Running the **gcloud services list --project <project ID>** will retrieve all the enabled services for the specified GCP project.
+
+
+![gcloud-services-list](/GCP_pictures/ACE-exam/mock-test-1/gcloud-services-list.PNG "gcloud services list")
+
+
