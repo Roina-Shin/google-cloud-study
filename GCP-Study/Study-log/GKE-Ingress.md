@@ -166,7 +166,7 @@ spec:
 - But if you access the **root context (lb-address/)** or any other context, a.k.a **Default Backend**, your request goes to the App 3 NodePort service.
 
 
-- For this, we will have 3 manifests for App1, App2, App4 Deployment and Service YAML:
+- For this, we will have 3 manifests for App1, App2, App3 Deployment and Service YAML:
 
 
 - **nginx-app1-deployment-and-nodeport-service.yaml**
