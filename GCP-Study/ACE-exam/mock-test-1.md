@@ -260,3 +260,57 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 ![gcloud-services-list](/GCP_pictures/ACE-exam/mock-test-1/gcloud-services-list.PNG "gcloud services list")
 
 
+
+### 8. Rolling Update on MIGs
+
+- CASE: You want to apply an update to all instances in MIG while minimizing downtime and affected capacity in the application.
+
+
+- Solution: 
+
+1. Perform a rolling-action start-update
+
+2. maxSurge set to 1
+
+3. masUnavailable set to 0
+
+
+- The maxSurge option is used to configure how many new instances the MIG can create above its targetSize during an automated update and the maxUnavailable option is used to configure how many instances are unavailable at any time during an automated update. The maxUnavailable count must be 0. It sets maxSurge to 1, allowing for one additional instance to be created during the update process. This will provide additional capacity to handle the deployment and ensure that live traffic is not affected. Setting maxUnavailable to 0 ensures that the available capacity does not decrease during the deployment, further minimizing downtime.
+
+
+![rolling-update-to-MIG](/GCP_pictures/ACE-exam/mock-test-1/rolling-update-to-instance-group.PNG "Rolling update to MIG")
+
+
+### 9. Link a project to a billing account
+
+- CASE: Finance team needs to link a project to a billing account. What should you do?
+
+
+- Solution:
+
+Assign the Finance team:
+
+1. On billing account -> **Billing Account User Role**
+
+2. In the organization -> **Project Billing Manager Role**
+
+
+- Finance team needs the billing account user role to access the billing account and the billing administrator role in the project in order to link the billing account to the project. This option involves granting the finance team two distinc roles. First, they are granted the Billing Account User role at the billing account level. This allows them to manage billing information and budgets. Second, at the organizational level, they are given the Project Billing Manager role. This role specifically grants authority to link project to billing accounts. By combining these roles, this option ensures that only the finance team has the necessary permissions to link projects to the billing account, meeting the requirements of the scenario.
+
+
+
+### 10. Enable communication beween 2 VMs in different projects in the same org.
+
+- CASE: You need to enable communication between 2 compute engine VMs hosted on different projects in separate VPCs in the same org.
+
+
+- Solution:
+
+1. Make sure both projects belong to the same GCP organization.
+
+2. Share the VPC from one project and request that the Compute Engine instances in the other porject use this shared VPC.
+
+
+- Shared VPC allows an organization to connect resources from multiple projects to a common VPC so that they can communicate with each other securely using internal IPs from that network. Only projects within the same organization can share a VPC.
+
+
