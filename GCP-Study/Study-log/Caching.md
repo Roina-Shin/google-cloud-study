@@ -104,4 +104,28 @@
 
 
 
-   
+## Cloud CDN Best Practices
+
+- **Cache static content**
+
+  - Example: Cache-Control: public, max-age=259200 (72 hours)
+
+
+- Be careful with expiring **time-sensitive (or dynamic) content**
+
+  - Smaller cache periods. Example: Cache-Control: public, max-age=300 (5 minutes)
+
+
+- Use **custom cache keys** to improve cache hit ratio
+
+  - By default, the cache key includes the entire URL (e.g. https://yourwebsite.com/my-image/1.jpg)
+
+  - You can customize **cache key** by using any combination of protocol, host, or query string
+
+
+- Example configuration of a cache key:
+
+
+```
+gcloud compute backend-services update BACKEND_SERVICE --enable-cdn --no-cache-key-include-protocol --no-cache-key-include-host --no-cache-key-include-query-string
+```
