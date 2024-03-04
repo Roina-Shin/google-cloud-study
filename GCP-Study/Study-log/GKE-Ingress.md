@@ -3,7 +3,7 @@
 
 ## Ingress Service Basics
 
-- Before you start, you need to make sure that the GKE cluster is priavate and **HTTP Load Balancing** enabled.
+- Before you start, you need to make sure that the GKE cluster is private and **HTTP Load Balancing** enabled.
 
 
 ![http-load-balancing-enabled](/GCP_pictures/Study-logs/gke-ingress/http-load-balancing-enabled.PNG "HTTP Load Balancing enabled")
