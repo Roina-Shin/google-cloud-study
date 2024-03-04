@@ -314,3 +314,135 @@ Assign the Finance team:
 - Shared VPC allows an organization to connect resources from multiple projects to a common VPC so that they can communicate with each other securely using internal IPs from that network. Only projects within the same organization can share a VPC.
 
 
+
+### 11. Implement a single caching HTTP reverse proxy on GCP to reduce latency.
+
+- CASE: Your website latency is caused by repeated database queries of similar nature. You plan to implement a single caching HTTP reverse proxy on GCP to reduce latency. This proxy needs 30 GB in-memory cache and an additional 2 GP of memory for the rest of the process. 
+
+
+- Solution: Use a **Cloud Memorystore for Redis instance** with 32 GB capacity.
+
+
+- Cloud Memorystore is the managed version of redis or Memcached. It suggests using Cloud Memorystore for Redis instance with a 32 GB capacity. Cloud Memorystore is a fully managed data store service provided by Google Cloud Platform, and it is specifically designed for caching purposes like this. It provides high performance and low-latency access to data stored in memory, which will help reduce latency issues experienced by the website.
+
+
+
+### 12. Expand the IP range of a subnet
+
+- CASE: The current subnet has no more free IP addresses. You are planning to migrate 15 more VMs on the same subnet.
+
+
+- Solution: Expand the IP range of the current subnet using gcloud. To expand the IP range of subnet to **/16**, run:
+
+
+```
+gcloud compute networks subnets expand-ip-range SUBNET --region=us-central1 --prefix-length=16
+```
+
+
+![gcloud-exapnd-ip-range](/GCP_pictures/ACE-exam/mock-test-1/gcloud-expand-ip-range.PNG "gcloud expand ip range")
+
+
+
+### 13. Create a GKE node pool with a sandbox type "gvisor"
+
+- CASE: You run multi-tenant clusters whose containers run untrusted workloads. For security purposes, all customers' pods need to be isolated. How can you achieve this?
+
+
+- Solution: 
+
+1. Create a GKE node pool with a sandbox type configured to gvisor.
+
+2. Add the parameter runtimeClassName: gvisor to the specification of your customers' pods.
+
+
+
+```
+gcloud container node-pools create smt-enabled \
+  --cluster=CLUSTER_NAME \
+  --machine-type=MACHINE_TYPE \
+  --threads-per-core=2 \
+  --sandbox type=gvisor
+```
+
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-untrusted
+spec:
+  runtimeClassName: gvisor
+  containers:
+  - name: nginx
+    image: nginx
+```
+
+
+- GKE Sandbox protects the hostkernel on your nodes when containers in the pod executes unknown or untrusted code. For example, multi-tenant clusters such as software-as-a-service providers often execute unknown code submitted by their users. It suggests creating a GKE node pool with a **sandbox type configured to gvisor** and adding the parameter **runtimeClassName: gvisor** to the specification of customers' pods. gVisor is an open-source sandbox runtime that provides isolation for containers. By configuring the node pool to use gvisor as the sandbox type and specifying gvisor as the runtime class for customers' pods, it ensures that each pod is isolated and runs within its own secure environment. 
+
+
+
+### 14. How to use gcloud config
+
+- CASE: Use **gcloud config** to identify currently active google cloud project.
+
+
+- Solution:
+
+1. Check which project is active
+
+
+```
+gcloud config get-value project
+```
+
+
+2. View all your projects
+
+
+```
+gcloud projects list
+```
+
+
+3. Switch to a particular project
+
+
+```
+gcloud config set project PROJECT_ID
+```
+
+
+### 15. How to make SDAP server reachable via TLS on port 636 over UDP
+
+- CASE: Your company is migrating Active Directory to GCP. As a first step, you deployed an LDAP server on a Compute Engine instance. The LDAP server is reachable via TLS on port 636 over UDP. How can you make sure the clients can access the server?
+
+
+- Solution: 
+
+1. Tag the VM running the LDAP server with a **network tag** of your choice.
+
+
+2. Create a firewall rule to allow **ingress on UDP port 636** for that **networking tag**.
+
+
+- The LDAP server will sit internally in the network protected by a Firewall, so an ingress rule will allow traffic to be routed internally to the LDAP server. It suggests tagging the VM running the LDAP server with a network tag of your choice and creating a firewall rule to allow ingress on UDP port 636 for that network tag. By tagging the VM and creating a specific firewall rule for that tag, you can control the traffic and allow clients to access the server on port 636.
+
+
+
+### 16. Compute Engine Machine Type n1-standard-96
+
+- CASE: The application requires 96 vCPU to perform its tasks. How can you create a similar environment in GCP to run this application?
+
+
+- Solution: Use **Compute Engine machine type n1-standard-96**.
+
+
+- Using Compute Engine machine type n1-standard-96 is the most direct and appropriate way to create a similar environment with 96 vCPUs in GCP. This machine type provides the necessary number of CPUs required by the application.
+
+
+
+![machine-types-general-purpose](/GCP_pictures/ACE-exam/mock-test-1/general-purpose-workloads.PNG "General purpose workload machine type")
+
+
