@@ -5,6 +5,20 @@
 
 ### 1. Create an Internal Load Balancer on Google Kubernetes Engine
 
+- CASE: an application on Compute Engine located on a different VPC but in the same region needs to access the application on GKE.
+
+
+- Solution: 
+
+1. In GKE, create a LoadBalancer service type that uses the application's pods as backend.
+
+2. Add an annotation: networking.gke.io/load-balancer-type: "Internal"
+
+3. Peer the two VPCs together.
+
+4. Configure the compute Engine instance to use the address of the load balancer that has been created.
+
+
 Source: https://cloud.google.com/kubernetes-engine/docs/how-to/internal-load-balancing
 
 
@@ -78,20 +92,6 @@ spec:
 
 
 - Your manifest must contain **an annotation** that specifies that you require an internal loadbalancer service. For GKE version 1.17 and later, use the annotation **networking.gke.io/load-balancer-type: "Internal"** as above. For earlier versions, use **cloud.google.com/load-balancer-type: "Internal"** instead.
-
-
-- CASE: an application on Compute Engine located on a different VPC but in the same region needs to access the application on GKE.
-
-
-- Solution: 
-
-1. In GKE, create a LoadBalancer service type that uses the application's pods as backend.
-
-2. Add an annotation: networking.gke.io/load-balancer-type: "Internal"
-
-3. Peer the two VPCs together.
-
-4. Configure the compute Engine instance to use the address of the load balancer that has been created.
 
 
 
