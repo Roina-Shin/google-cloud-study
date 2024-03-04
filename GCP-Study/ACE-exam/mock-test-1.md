@@ -446,3 +446,36 @@ gcloud config set project PROJECT_ID
 ![machine-types-general-purpose](/GCP_pictures/ACE-exam/mock-test-1/general-purpose-workloads.PNG "General purpose workload machine type")
 
 
+
+### 17. Search which table contains a specific field name in BigQuery
+
+- CASE: Your CIO asked you to examine all datasets to find tables that contain an employee_nu column. How can you perform this task with minimum effort?
+
+
+- Solution: Search for employee_nu in the search box in the **Data Catalog**.
+
+
+- Data Catalog allows you to discover, manage, and understand data assets across Google Cloud Platform. Data Catalog API natively indexes Cloud Storage, and Cloud Pub/Sub data assets. Searching for the "employee_nu" column in the search box in the Data Catalog is the simplest way to find all datasets that contain this column. The Data Catalog is a centralized and searchable metadata service that allows users to easily discover and understand the data assets within their organization. By searching for the specific column name, the user can quickly identify all datasets that meet the given criteria.
+
+
+### 18. Know when users are added to Cloud Spanner Identity Access Management roles on a GCP project
+
+- CASE: You want to know when users were added to Cloud Spanner Identity Access Management roles on a certain GCP project.
+
+
+- Solution: Review admin activity logs by filtering them for Cloud Spanner IAM roles in the Cloud Logging console.
+
+
+- The Admin Activity logs show when users were given roles. The Admin Activity logs in the Cloud Logging console can be filtered to show specific activities related to Cloud Spanner IAM roles. These logs can provide a historical record of when users were added to IAM roles in Cloud Spanner.
+
+
+
+### 19. Control BigQuery budget
+
+- CASE: Query costs for BigQuery are going out of budget as multiple teams run queries and you want to control these costs. Which method is the most suitable. 
+
+
+- Solution: Apply custom query quota for BigQuery data warehouse at the user-level or project-level.
+
+
+- Adding a query quota can help limit costs. Applying custom query quotas for BigQuery at the user-level or project-level allows you to set limits on the amount of query resources users or projects can consume. By setting accurate quotas, you can prevent excessive query costs and ensure that each team or user stays within their allocated budget.
