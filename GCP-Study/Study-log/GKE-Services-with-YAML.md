@@ -410,7 +410,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: myapp
+    app: myapp2
   ports:
     - name: http
       port: 80
