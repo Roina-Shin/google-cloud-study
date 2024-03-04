@@ -741,7 +741,7 @@ spec:
 ```
 
 
-- If tou don't commend the **nodePort** in the nodePort service YAML file, it will automatically create the node port from **30000 to 32768**.
+- If you don't comment the **nodePort** in the nodePort service YAML file, it will automatically create the node port from **30000 to 32768**.
 
 
 - Now, we will deploy these 2 YAML files:
