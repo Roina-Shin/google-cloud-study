@@ -113,7 +113,7 @@ kubectl expose deployment my-frontend-nginx-app --type=LoadBalancer --port=80 --
 ```
 
 
-![expose-deployment-as-loadbalancer](/GCP_pictures/Study-logs/gke-clusterIP-LoadBalancer/expose-deployment-loadbalancer.PNG "Expose deployment as a LoadBalancer service)
+![expose-deployment-as-loadbalancer](/GCP_pictures/Study-logs/gke-clusterIP-LoadBalancer/expose-deployment-loadbalancer.PNG "Expose deployment as a LoadBalancer service")
 
 
 - And if you go to the http://[external IP of service]/hello, you will see the output.
