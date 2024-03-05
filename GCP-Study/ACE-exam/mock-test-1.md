@@ -240,7 +240,7 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 
 
 
-### 6. Create a DaemonSet in the kube-system namespace of the cluster using the Deployment Manager Template.
+### 7. Create a DaemonSet in the kube-system namespace of the cluster using the Deployment Manager Template.
 
 - CASE: You are working on a Deployment Manager template and configure GCP resources. You want to create a DeamonSet in the kube-system namespace of the cluster using the Deployment Manager template.
 
@@ -249,7 +249,7 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 
 
 
-### 7. Command like for only enabled APIs in a Project
+### 8. Command like for only enabled APIs in a Project
 
 - CASE: You need the list of the enabled Google Cloud Platform APIs for your GCP project. How can you use the command line to do it?
 
@@ -261,7 +261,7 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 
 
 
-### 8. Rolling Update on MIGs
+### 9. Rolling Update on MIGs
 
 - CASE: You want to apply an update to all instances in MIG while minimizing downtime and affected capacity in the application.
 
@@ -281,7 +281,7 @@ gcloud dns record-sets transaction add --name=restricted.googleapis.com. \
 ![rolling-update-to-MIG](/GCP_pictures/ACE-exam/mock-test-1/rolling-update-to-instance-group.PNG "Rolling update to MIG")
 
 
-### 9. Link a project to a billing account
+### 10. Link a project to a billing account
 
 - CASE: Finance team needs to link a project to a billing account. What should you do?
 
@@ -299,7 +299,7 @@ Assign the Finance team:
 
 
 
-### 10. Enable communication beween 2 VMs in different projects in the same org.
+### 11. Enable communication beween 2 VMs in different projects in the same org.
 
 - CASE: You need to enable communication between 2 compute engine VMs hosted on different projects in separate VPCs in the same org.
 
@@ -315,7 +315,7 @@ Assign the Finance team:
 
 
 
-### 11. Implement a single caching HTTP reverse proxy on GCP to reduce latency.
+### 12. Implement a single caching HTTP reverse proxy on GCP to reduce latency.
 
 - CASE: Your website latency is caused by repeated database queries of similar nature. You plan to implement a single caching HTTP reverse proxy on GCP to reduce latency. This proxy needs 30 GB in-memory cache and an additional 2 GP of memory for the rest of the process. 
 
@@ -327,7 +327,7 @@ Assign the Finance team:
 
 
 
-### 12. Expand the IP range of a subnet
+### 13. Expand the IP range of a subnet
 
 - CASE: The current subnet has no more free IP addresses. You are planning to migrate 15 more VMs on the same subnet.
 
@@ -344,7 +344,7 @@ gcloud compute networks subnets expand-ip-range SUBNET --region=us-central1 --pr
 
 
 
-### 13. Create a GKE node pool with a sandbox type "gvisor"
+### 14. Create a GKE node pool with a sandbox type "gvisor"
 
 - CASE: You run multi-tenant clusters whose containers run untrusted workloads. For security purposes, all customers' pods need to be isolated. How can you achieve this?
 
@@ -383,7 +383,7 @@ spec:
 
 
 
-### 14. How to use gcloud config
+### 15. How to use gcloud config
 
 - CASE: Use **gcloud config** to identify currently active google cloud project.
 
@@ -414,7 +414,7 @@ gcloud config set project PROJECT_ID
 ```
 
 
-### 15. How to make SDAP server reachable via TLS on port 636 over UDP
+### 16. How to make SDAP server reachable via TLS on port 636 over UDP
 
 - CASE: Your company is migrating Active Directory to GCP. As a first step, you deployed an LDAP server on a Compute Engine instance. The LDAP server is reachable via TLS on port 636 over UDP. How can you make sure the clients can access the server?
 
@@ -431,7 +431,7 @@ gcloud config set project PROJECT_ID
 
 
 
-### 16. Compute Engine Machine Type n1-standard-96
+### 17. Compute Engine Machine Type n1-standard-96
 
 - CASE: The application requires 96 vCPU to perform its tasks. How can you create a similar environment in GCP to run this application?
 
@@ -447,7 +447,7 @@ gcloud config set project PROJECT_ID
 
 
 
-### 17. Search which table contains a specific field name in BigQuery
+### 18. Search which table contains a specific field name in BigQuery
 
 - CASE: Your CIO asked you to examine all datasets to find tables that contain an employee_nu column. How can you perform this task with minimum effort?
 
@@ -458,7 +458,7 @@ gcloud config set project PROJECT_ID
 - Data Catalog allows you to discover, manage, and understand data assets across Google Cloud Platform. Data Catalog API natively indexes Cloud Storage, and Cloud Pub/Sub data assets. Searching for the "employee_nu" column in the search box in the Data Catalog is the simplest way to find all datasets that contain this column. The Data Catalog is a centralized and searchable metadata service that allows users to easily discover and understand the data assets within their organization. By searching for the specific column name, the user can quickly identify all datasets that meet the given criteria.
 
 
-### 18. Know when users are added to Cloud Spanner Identity Access Management roles on a GCP project
+### 19. Know when users are added to Cloud Spanner Identity Access Management roles on a GCP project
 
 - CASE: You want to know when users were added to Cloud Spanner Identity Access Management roles on a certain GCP project.
 
@@ -470,7 +470,7 @@ gcloud config set project PROJECT_ID
 
 
 
-### 19. Control BigQuery budget
+### 20. Control BigQuery budget
 
 - CASE: Query costs for BigQuery are going out of budget as multiple teams run queries and you want to control these costs. Which method is the most suitable. 
 
