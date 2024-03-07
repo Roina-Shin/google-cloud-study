@@ -603,7 +603,7 @@ When you see a green check mark everything can connect, click Create.
 
 
 
-### 19. Connecting to Windows machine
+### 20. Connecting to Windows machine
 
 - CASE: You are the head of the backend and database management team in your company. Your DB team does weekly maintenance on your company’s customers and operational data. DB team has upgraded one of the SQL servers on a Windows Compute engine instance to the latest version and asked you to test with the new version so they can roll out the upgrade to all servers. In order to do some debugging, you want to connect to this instance. How can you do it in the fewest number of steps?
 
@@ -621,7 +621,7 @@ When you see a green check mark everything can connect, click Create.
 
 
 
-### 20. Auditor Roles
+### 21. Auditor Roles
 
 - CASE: Your app deals with the financial data of your customers and it needs to be audited by external auditors. You need to configure IAM access audit logging in BigQuery to facilitate the audit. How can you do it following Google recommended practices?
 
@@ -633,7 +633,7 @@ When you see a green check mark everything can connect, click Create.
 
 
 
-### 21. Audit logs
+### 22. Audit logs
 
 - CASE: Some of your highly sensitive banking-management application data is stored on Cloud Storage. As per the recommendation from your security team, you enabled data access logging on the buckets. As a security drill, you want to verify activities for a particular user for these buckets, using the fewest possible steps. You are interested in activities that involve the addition of metadata labels and files that have been viewed from those buckets. How will you achieve this?
 
@@ -668,7 +668,7 @@ Once you apply the filter, the Audit log will display all the access and activit
 
 
 
-### 22. IAM Roles
+### 23. IAM Roles
 
 - CASE: You have newly joined the Operations and Access Governance team at a large organization. One of the teams has requested access to manage buckets and files in Cloud Storage in one of the GCP projects that you manage. Which IAM roles should you grant your colleagues?
 
@@ -680,7 +680,7 @@ Once you apply the filter, the Audit log will display all the access and activit
 
 
 
-### 23. Load Balancing options
+### 24. Load Balancing options
 
 - CASE: Your PDF merging application is running on Managed Instance group. You want to have a single public IP over HTTPs that load balances your application. The load balancer must terminate the client SSL session once merging is completed. What is the Google Recommended approach for such a requirement?
 
@@ -702,7 +702,7 @@ Once you apply the filter, the Audit log will display all the access and activit
 
 
 
-### 24. Signed URLs
+### 25. Signed URLs
 
 - CASE: You work at a large product-based tech company. One of your joint business partners from the external company has requested access to a sensitive file on your Cloud Storage. Your partner does not use Google accounts. Given the sensitivity of the data, access to the content needs to be removed after five hours. You want to follow Google-recommended practices. What should you do? 
 
@@ -714,7 +714,7 @@ Once you apply the filter, the Audit log will display all the access and activit
 
 
 
-### 25. DaemonSet
+### 26. DaemonSet
 
 - CASE: Multiple teams in your company deploy their apps on a single GKE auto-scaling cluster. You want to centralize monitoring by running a monitoring pod that sends container metrics to a third-party monitoring solution. Which is the simplest way to do it?
 
@@ -773,7 +773,7 @@ spec:
 
 
 
-### 26. Managed Instance Group
+### 27. Managed Instance Group
 
 - CASE: Your apparel-selling app is just launched. Your app uses a Managed Instance group. Since very little traffic is expected, for a while, only a single instance of the VM should be active in every GCP project. How should you configure the instance group?
 
@@ -791,7 +791,7 @@ spec:
 
 
 
-### 27. VPC
+### 28. VPC
 
 - CASE: You are tasked with building the VPC config for a new logistics app. The app will have a production and a test environment on Compute Engine. Both environments need to have their own separate individual subnets. Network connectivity is required between all VMs over internal IPs, without the need to create additional routes. Which configuration should you select?
 
@@ -806,7 +806,7 @@ spec:
 
 
 
-### 28. Understanding Roles
+### 29. Understanding Roles
 
 - CASE: You are facilitating a security audit and the auditors have asked for a list of all IAM users and roles assigned within a GCP project named my-project. What should you do?
 
@@ -818,7 +818,7 @@ spec:
 
 
 
-### 29. Link a billing account to a project
+### 30. Link a billing account to a project
 
 - CASE: You work at a large search engine company. Your finance team has asked you to create a new Billing account specifically for your project to track expenses. You need to link it with your GCP project. What steps should you take?
 
@@ -834,7 +834,7 @@ spec:
 
 
 
-### 30. Managing Traffic on App Engine
+### 31. Managing Traffic on App Engine
 
 - CASE: You developed a website to sell used smartphones and deployed it on App Engine. You found that the user interface is breaking for some users in the latest release. Prior versions of the application did not have this issue. You want to immediately revert to an older version to mitigate the issue. What should you do?
 
@@ -865,7 +865,7 @@ gcloud app services set-traffic [MY_SERVICE] --splits [MY_VERSION1]=[VERSION1_WE
 ```
 
 
-### 31. Compute OS Login
+### 32. Compute OS Login
 
 - CASE: You work in a large airline company as a cloud engineer. Your company’s operational and flight schedule data is hosted on GCP. There are a large number of instances deployed on Compute Engine, which are managed by an operations team. The operations team does maintenance work on flight schedule data and they require administrative access to these servers. Your security team needs to ensure credentials are optimally distributed to the operations team and they must be able to audit who accessed a given instance. What approach should you take?
 
@@ -884,7 +884,7 @@ gcloud app services set-traffic [MY_SERVICE] --splits [MY_VERSION1]=[VERSION1_WE
 
 
 
-### 32. Cloud Spanner IAM roles
+### 33. Cloud Spanner IAM roles
 
 - CASE: Your company’s image tagging app is hosted on GCP. A new team at your Organization has requested view and edit access to one of the existing Cloud Spanner instances. What is the best practice to grant such access?
 
@@ -902,7 +902,7 @@ gcloud app services set-traffic [MY_SERVICE] --splits [MY_VERSION1]=[VERSION1_WE
 
 
 
-### 33. Node Auto-Upgrade feature
+### 34. Node Auto-Upgrade feature
 
 - CASE: Kubernetes regularly releases patches and fixes to vulnerabilities in its latest versions. You want to keep your GKE cluster updated to take advantage of the latest fixes. What should you do?
 
@@ -920,7 +920,7 @@ gcloud app services set-traffic [MY_SERVICE] --splits [MY_VERSION1]=[VERSION1_WE
 
 
 
-### 34. Parallel Composite Uploads
+### 35. Parallel Composite Uploads
 
 - CASE: You work at a food-delivery startup that has generated a large amount of data in the last month. You are backing up application data of one of your servers to a Nearline Cloud Storage Bucket. The total backup file is 35 GB. You have provisioned a dedicated 1 Gbps WAN connection for this purpose. You want to use the bandwidth of 1 Gbps as efficiently as possible to transfer the file rapidly. How should you upload the file?
 
@@ -949,7 +949,7 @@ gcloud storage cp OBJECT_LOCATION gs://DESTINATION_BUCKET_NAME storage/parallel_
 ```
 
 
-### 34. Kubernetes secret
+### 36. Kubernetes secret
 
 - CASE: One of your teammates has deployed a microservice called myapp1 to your Kubernetes cluster using the YAML specification. A part of YAML specifications is shown below:
 
@@ -1019,7 +1019,7 @@ spec:
 - Storing sensitive information like passwords in Kubernetes secrets is the recommended way.
 
 
-### 35. Cross Project Management Using service accounts
+### 37. Cross Project Management Using service accounts
 
 - CASE: Your Security team manages all service accounts in a project called sec-sa. You need to take snapshots of VMs running in another project called proj-vm. Your security team has asked you to use a specific service account from their project for this purpose. What should you do?
 
@@ -1031,7 +1031,7 @@ spec:
 
 
 
-### 36. Cloud Storage Object Content Type
+### 38. Cloud Storage Object Content Type
 
 - CASE: You work at a graphics design studio that serves multiple clients. You have created a static website on Cloud Storage to showcase your freelance services. Your website also includes your work portfolio in PDF files that users can download by clicking on its links. Instead of prompting the user to download the PDFs, you want the clicked PDF files to be displayed within the browser window directly. How can you achieve this?
 
@@ -1043,7 +1043,7 @@ spec:
 
 
 
-### 37. MIG health check
+### 39. MIG health check
 
 - CASE: You are working as a GCP engineer at a legal cricket betting application where customers use historical data points and statistics to place their bets. Millions of users place bets daily on an ongoing T20 Worldcup match series. Your application is hosted on an auto-scaling managed instance group. New instances are added to the group if CPU utilization exceeds 85%. The maximum number of VMs in the group can be 6 VMs. The health check on the group is configured to become active after an initial delay of 30 seconds. Recently, you have noticed that when the managed instance group auto-scales, it creates more instances than required to support end-user traffic. One of your developers has made some changes to the application startup script and that has caused the app to take 3 minutes to initialize and become ready to serve traffic. The initial delay of HTTP healthchecks is set to 30 seconds. You suspect that there is over-provisioning of VMs and unnecessary use of resources. You want to make sure there is no overprovisioning of resources. How can you do it?
 
@@ -1055,7 +1055,7 @@ spec:
 
 
 
-### 38. Batch Job run on Preemptible VMs
+### 40. Batch Job run on Preemptible VMs
 
 - CASE: You are building an application to detect malicious financial transactions. Every night at 2 AM, you fetch the records of all financial transactions done during the previous day from the database and run a batch job to analyze all the transactions. The batch jobs take around 2 hours to complete. You want to minimize service costs. What approach should you take?
 
@@ -1067,7 +1067,7 @@ spec:
 
 
 
-### 39. gcloud config while deploying an app
+### 41. gcloud config while deploying an app
 
 - CASE: You are a freelancer working on multiple GCP projects at the same time. You deployed an App Engine application using gcloud app deploy, but the deployment is not showing in the intended project. You suspect it got deployed in a different project. You want to find out why this happened and where the application is deployed. How can you debug this?
 
@@ -1096,7 +1096,7 @@ environment = devshell
 ```
 
 
-### 40. Setting Instance Scheduling options
+### 42. Setting Instance Scheduling options
 
 - CASE: You are developing a mission-critical application for the stock market on Compute Engine. You have a set of 10 Compute Engine instances and you need to configure them for availability. These instances should attempt to automatically restart if they crash. And you cannot afford to lose the instances during system maintenance activity. What should you do?
 
@@ -1116,7 +1116,7 @@ environment = devshell
 
 
 
-### 41. Changing machine type of stopped instance
+### 43. Changing machine type of stopped instance
 
 - CASE: Traffic on your blogging website has suddenly increased after a relatively popular technology magazine wrote about you. Your website is hosted on a Compute engine instance configured with 2 vCPUs and 4 GB of memory. The increase in traffic is causing the virtual machine to run out of memory. You want to upgrade the virtual machine to have 8 GB of memory. What is the recommended way to do it?
 
