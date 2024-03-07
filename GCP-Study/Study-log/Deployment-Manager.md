@@ -413,7 +413,7 @@ context.env["deployment"]  # python
 
 ```
 - type: compute.v1.instance
-  name: vm-{{  env["deployment]  }}
+  name: vm-{{  env["deployment"]  }}
   properties:
     machineType: zones/us-central1-a/machineTypes/f1-micro
     serviceAccounts:
