@@ -477,7 +477,7 @@ Cloud Monitoring recognizes that this data is for a Compute Engine VM instance. 
 
 
 
-### 23. Link a project to a billing account
+### 24. Link a project to a billing account
 
 - CASE: Your company provides cloud services that help migrate other companies to GCP. Multiple teams at your Organization use Google Cloud services in their own separate projects. The marketing team is working on a new initiative and the GCP costs for this initiative will be borne by the Marketing department. How can you bill the Marketing team only for their Google Cloud services for the new initiative within their group?
 
@@ -497,7 +497,7 @@ Cloud Monitoring recognizes that this data is for a Compute Engine VM instance. 
 
 
 
-### 24. Design networking setup
+### 25. Design networking setup
 
 - CASE: You work as a senior cloud engineer at a premiere medical institute where your team is working on migrating the entire infrastructure of a legacy enterprise client to GCP Compute Engine. Some medical servers are accessible from the internet, others via the institute's internal intranet. All servers talk to each other over specific ports and protocols. You are studying the current network setup and you have found that the public servers rely on a demilitarized zone (DMZ) and the private servers use the Local Area Network (LAN). How can you design the networking setup on GCP with these requirements?
 
@@ -513,7 +513,7 @@ Cloud Monitoring recognizes that this data is for a Compute Engine VM instance. 
 
 
 
-### 25. Access Control Folders
+### 26. Access Control Folders
 
 - CASE: You are working for a Cloud Consulting firm that specializes in providing managed services for managing Google Cloud environments. You are working with a customer that has recently started using GCP and they need you to set up billing configuration for their environments. Their requirement is that all resources that share common IAM policies need to be grouped together. What should you do?
 
@@ -528,7 +528,7 @@ Cloud Monitoring recognizes that this data is for a Compute Engine VM instance. 
 
 
 
-### 26. Dual region storage
+### 27. Dual region storage
 
 - CASE: Your company has built a train booking application. A daily running mission-critical data analysis pipeline at your company relies on files stored in a Cloud Storage bucket. Data is accessed frequently and dynamically. The users are located in Bangalore, India. How can you configure the most optimal and cost-effective storage for these files on Cloud Storage?
 
@@ -554,7 +554,7 @@ As per the GCP docs:
 
 
 
-### 27. App Engine Split Traffic
+### 28. App Engine Split Traffic
 
 - CASE: You are building a new medicine delivery web application that will be deployed on GCP. One of your requirements is that you need to be able to test updates for the application on a small portion of live users before rolling it out to everyone. The rest of the users should still see the live version of the app. What should be your GCP deployment strategy?
 
@@ -578,7 +578,7 @@ As per the GCP docs:
 
 
 
-### 28. Machine Type M1
+### 29. Machine Type M1
 
 - CASE: You are migrating an on-premise customer-facing application to GCP. The application stores the full database in-memory to keep the latency minimum. How should you configure resources on GCP for this application?
 
@@ -593,7 +593,7 @@ As per the GCP docs:
 
 
 
-### 29. CPU Utilization of Cloudl Spanner
+### 30. CPU Utilization of Cloudl Spanner
 
 - CASE: Your photo-sharing application is hosted on GCP. You have been asked to manage a Cloud Spanner instance in production for optimal query performance. The Spanner instance is running in a single Google Cloud region. You want to follow Google's recommended practices for service configuration. What should you do to improve performance as quickly as possible?
 
@@ -615,7 +615,7 @@ As per the GCP docs:
 
 
 
-### 30. VPN concepts
+### 31. VPN concepts
 
 - CASE: Your VMs on Compute Engine need to connect with physical servers running at a remote site through private IPs.
 
@@ -655,7 +655,7 @@ VPN tunnels connected to HA VPN gateways must use dynamic (BGP) routing. Dependi
 
 
 
-### 31. Cloud SQL
+### 32. Cloud SQL
 
 - CASE: Your company has an internal performance tracking application that they want to migrate to GCP. All employees using the application are located in a single region. The application uses PostgreSQL and relies heavily on strong consistency and ACID transactions for multi-table write operations. Which database is most appropriate for this application?
 
@@ -676,7 +676,7 @@ VPN tunnels connected to HA VPN gateways must use dynamic (BGP) routing. Dependi
 
 
 
-### 32. Understanding custom roles
+### 33. Understanding custom roles
 
 - CASE: Your company has recently started using GCP and you are leading the initiative. Several developers and testers are participating in the pilot project. The project contains some sensitive data and only certain members of the team should have access to it. How can you assign appropriate identity and access management roles to the participants such that minimum maintenance is required?
 
@@ -697,7 +697,7 @@ VPN tunnels connected to HA VPN gateways must use dynamic (BGP) routing. Dependi
 
 
 
-### 33. gcloud config set container/cluster [cluster-name]
+### 34. gcloud config set container/cluster [cluster-name]
 
 - CASE: You are part of the Kubernetes and Infrastructure Admin team at a digital news app company. You are responsible for managing a GKE cluster called ‘prod’. How can you ensure that all commands run from your local gcloud cli address this specific cluster by default?
 
@@ -709,7 +709,7 @@ VPN tunnels connected to HA VPN gateways must use dynamic (BGP) routing. Dependi
 
 
 
-### 34. Cloud Function
+### 35. Cloud Function
 
 - CASE: You are building an application that monitors changes in Cloud Storage and Firestore instances. Whenever a change occurs, an action needs to be invoked which will verify and process the updated data in almost real-time. How can you accomplish this with minimum setup?
 
@@ -721,7 +721,7 @@ VPN tunnels connected to HA VPN gateways must use dynamic (BGP) routing. Dependi
 
 
 
-### 35. BigQuery DataViewer role
+### 36. BigQuery DataViewer role
 
 - CASE: You are leading the migration of accounting software from on-premises to Google Cloud for your organization. You have decided to use BigQuery for its financial transaction monitoring feature. The app allows Auditors to view the data and run reports in BigQuery, but they cannot perform transactions in the application. What is the simplest solution for this use case with the least maintenance?
 
@@ -733,7 +733,7 @@ VPN tunnels connected to HA VPN gateways must use dynamic (BGP) routing. Dependi
 
 
 
-### 36. Cloud SQL Backup Recovery
+### 37. Cloud SQL Backup Recovery
 
 - CASE: Your logistics application uses a Cloud SQL MYSQL instance. The laws in your country mandate you to retain a month-end copy of the database for three years. What steps should you take?
 
@@ -776,7 +776,7 @@ In summary, while exporting a Cloud SQL MySQL database and storing the export fi
 
 
 
-### 37. Deployment in GKE
+### 38. Deployment in GKE
 
 - CASE: You work as an intern at a client-facing app. As part of the application modernization initiative at your organization, you have dockerized the app your team is working on. How can you deploy this app as a workload on Google Kubernetes Engine?
 
@@ -792,7 +792,7 @@ In summary, while exporting a Cloud SQL MySQL database and storing the export fi
 
 
 
-### 38. Migrating Consumer Accounts
+### 39. Migrating Consumer Accounts
 
 - CASE: You work at a search engine company that has more than 1500 employees located in global offices. Your company has recently started using Cloud Identity for all of its GCP users. Some of the users in your organization already have a Google Account. How can you avoid conflicting accounts with Cloud Identity using Google's recommended practices?
 
@@ -824,7 +824,7 @@ In the preceding diagram, if the user johndoe consents to a transfer, the unmana
 
 
 
-### 39. GKE Node Pools
+### 40. GKE Node Pools
 
 - CASE: Your image-sharing app consists of multiple microservices running in a GKE cluster. The image processing microservice requires a large amount of CPU time and relatively less memory. All other microservices are optimized for n1-standard machine types. How can you optimize your cluster to enable workloads to use resources as efficiently as possible?
 
