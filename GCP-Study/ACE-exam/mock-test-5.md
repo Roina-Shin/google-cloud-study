@@ -240,7 +240,7 @@ bq query \
 
 
 
-### 7. Autohealing Health Check
+### 7. Autohealing Health Check on MIG
 
 - CASE: You are a cloud engineer on a client-facing app that is hosted on GCP. There are a group of Compute Engine instances that run in multiple zones. You have a requirement to automatically re-create instances in case any of them fail. VMs should be re-created if they are unresponsive after 2 attempts of 8 seconds each. What should you do?
 
