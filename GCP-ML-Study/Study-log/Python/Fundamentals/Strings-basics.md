@@ -105,7 +105,7 @@
 
 ## f strings
 
-- f-strings are an easy way to generate strings that contain interpolated expressions. Any code between **curly braces {}** will be evaluaged and then the result will be turned to a string and inserted into the overall string.
+- f-strings are an easy way to generate strings that contain interpolated expressions. Any code between **curly braces {}** will be evaluated and then the result will be turned to a string and inserted into the overall string.
 
 
 ![f-strings](/GCP_ML_pictures/Study-logs/Python/Fundamentals/strings/f-strings.PNG "f strings")
