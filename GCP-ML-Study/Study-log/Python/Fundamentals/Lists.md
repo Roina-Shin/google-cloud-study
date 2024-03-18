@@ -139,3 +139,247 @@ while index < len(emails):
 ![iterating-list-with-while-loop](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/using-while-loop-for-iterating-list.PNG "itertaing list with while loop")
 
 
+
+### Adding up elements in the list
+
+- We use a variable (total = 0) to add up all the elements in the list.
+
+
+```
+result = [1,3,5,6,3,5,3,5,6,7,4,3,3,6,8,3,5,7,2,5]
+
+total = 0
+
+for element in result:
+  total += element
+
+print(total)
+```
+
+
+![adding-up-elements](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/adding-up-elements.PNG "Adding up elements")
+
+
+
+- To calculate the average, do this:
+
+
+```
+result = [1,3,5,6,3,5,3,5,6,7,4,3,3,6,8,3,5,7,2,5]
+
+total = 0
+
+for element in result:
+  total += element
+
+print(f"The total is {total}")
+print(f"The average is {total/len(result)}")
+```
+
+
+![calculating-average](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/calculating-avg.PNG "Calculating average")
+
+
+
+- Create a function to add up all the elements:
+
+
+```
+numlist = [1,3,5,6,3,5,3,5,6,7,4,3,3,6,8,3,5,7,2,5]
+
+def average(numlist):
+  total = 0
+  for i in numlist:
+    total += i
+  return total / len(numlist)
+
+print(average(numlist))
+print(round(average([1,5,75,43,5,2,4]),2))
+```
+
+
+![using-function-for-average](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/using-function-for-average.PNG "using function for average")
+
+
+
+### Finding a minimum in the list
+
+
+```
+numlist = [1,3,5,6,3,5,3,5,6,7,4,3,3,6,8,3,5,7,2,5]
+
+min = numlist[0]
+
+for element in numlist:
+  if element < min:
+    min = element
+
+print(min)
+```
+
+
+![finding-minimum](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/fiding-minimum.PNG "finding minimum")
+
+
+
+### Grand Prix Drivers
+
+
+```
+drivers = ['Valterri', 'Lewis', 'Elton', 'George', 'Lando', 'Esteban', 'Pierre']
+
+for idx in range(len(drivers)):
+  print(f"{idx+1}. {drivers[idx]}")
+```
+
+
+![grand-prix-drivers](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/grand-prix-drivers.PNG "Grand Prix drivers")
+
+
+
+### Nested lists
+
+- You can iterate over the nested list (list inside of list) like below:
+
+
+```
+couples = [['yejin','momo'],['toto','mimi'],['tommy','angela'],['shaun','tiana']]
+
+for couple in couples:
+  for person in couple:
+    print(f"Send email to {person}")
+```
+
+
+![nested-lists](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/nested-lists.PNG "nested lists")
+
+
+
+### Count elements in lists
+
+- The count method returns the number of times a value occurs in a list. If the value is not in the list, it returns 0.
+
+
+```
+numbers = [1,6,3,8,4,8,0,4,5,84,6,3,7,9,34,6,8,4,8,5,6,4,4,6,8,9,0,4,5,6,7,8,9,0,1]
+
+
+def count_num(numbers, num):
+  return print(f"The number {num} occurs {numbers.count(num)} times in the list")
+
+
+print(count_num(numbers,8))
+```
+
+
+![count-numbers](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/count-numbers.PNG "count numbers")
+
+
+
+### Sort and reverse methods
+
+- The sort method sorts your list in an ascending order by default while reverse method reverses the order in place.
+
+
+```
+numbers = [1,6,3,8,4,8,0,4,5,84,6,3,7,9,34,6,8,4,8,5,6,4,4,6,8,9,0,4,5,6,7,8,9,0,1]
+
+
+numbers.sort(reverse=True)
+
+print(numbers)
+```
+
+
+![sort-reverse](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/sort-reverse.PNG "sort and reverse")
+
+
+
+### Comparing lists
+
+1. Use **==** to compare the contents inside of two lists. Do they hold the same values?
+
+
+2. Use **is** to compare the identity of two lists. Are they the same "container" in memory?
+
+
+![comparing-lists](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/comparing-lists.PNG "Comparing lists")
+
+
+
+### Split methods
+
+- **split()** is a string method that will split a string on a given character. It returns a list that holds the split strings.
+
+
+![split-method](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/split-method.PNG "split method")
+
+
+
+### Join methods
+
+- **join()**  joins together individual elements in the list:
+
+
+![join-method](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/join-method.PNG "join method")
+
+
+
+### Copy lists
+
+- **list2 = list1.copy()** returns a shallow copy of a list. Nested objects are not copied.
+
+
+![copy-list](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/copy-list.PNG "copy lists")
+
+
+- The **deepcopy()** method will make a copy of a list AND any nested objects contained inside that list.
+
+
+```
+import copy
+list1 = [1,2,3,4,[5,6,7,8]]
+list2 = copy.deepcopy(list1)
+```
+
+
+![deepcopy](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/deepcopy.PNG "deepcopy")
+
+
+
+### Create a todo list
+
+
+```
+header = """
+  _____         _           
+ |_   _|__   __| | ___  ___ 
+   | |/ _ \ / _` |/ _ \/ __|
+   | | (_) | (_| | (_) \__ \
+   |_|\___/ \__,_|\___/|___/
+"""
+
+todos = []
+while True:
+  for i in range(len(todos)):
+    print(f"{i+1}) {todos[i]}")
+  print("*"*50)
+  print("Enter a command.")
+  command = input("> ")
+  if command == 'q':
+    break
+  elif command.isnumeric():
+    if int(command) > len(todos):
+      print("There is no todo with that number.")
+    else:
+      num = int(command)
+      todos.pop(num-1)
+  else:
+    todos.append(command)
+```
+
+
+![todo-list](/GCP_ML_pictures/Study-logs/Python/Fundamentals/lists/todo-list.PNG "todo list")
+
+
+
