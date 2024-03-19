@@ -119,7 +119,7 @@ del prices['apple']
 
 ### Iterating dicts: keys(), values(), and items()
 
-- If I want to iterate over the dictionary, you can iterate over the keys, valuesm and items using the keys(), values(), and items() methods.
+- If I want to iterate over the dictionary, you can iterate over the keys, values and items using the keys(), values(), and items() methods.
 
 
 ```
