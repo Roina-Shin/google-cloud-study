@@ -119,7 +119,7 @@ set_odd | set_even
 ```
 
 
-- Difference (-) returns a new set with only members unique from left and not in right. We use minus sign (-) to do the operation.
+- Difference (-) returns a new set with only members unique to left and not in right. We use minus sign (-) to do the operation.
 
 
 ```
@@ -134,6 +134,31 @@ set_odd - set_prime
 
 ![set-intersection-union-difference](/GCP_ML_pictures/Study-logs/Python/Fundamentals/tuples-and-sets/set-intersection-union-difference.PNG "set intersection - union - difference")
 
+
+
+
+## When to use sets?
+
+- Sets make it very easy / fast to check if a value exists in a collection.
+
+
+- Sets are an easy way to remove duplates from a collection. If you have a list with multiple duplates, you can whittle it down to have only unique values using a set.
+
+
+```
+numbers = [1,3,3,6,6,8,9,12,14,6,8,4,3,8]
+
+# turn the list into a set
+
+set(numbers)
+
+# Store the unique values
+
+numbers = {1,3,4,6,8,9,12,14}
+```
+
+
+![when-to-use-sets](/GCP_ML_pictures/Study-logs/Python/Fundamentals/tuples-and-sets/when-to-use-sets.PNG "when to use sets")
 
 
 
