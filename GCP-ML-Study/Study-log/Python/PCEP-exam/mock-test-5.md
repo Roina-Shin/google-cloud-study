@@ -959,8 +959,6 @@ Code:
 
 list = ['A', 2, 7, 1, 4]
  
-# enter code here
- 
 print(list)
 
 
@@ -1316,6 +1314,7 @@ Which of the following literals would you use?
 
 - Try it yourself:
 
+```
 print("Peter's sister's name's \"Anna\"")
 # Peter's sister's name's "Anna"
 print('Peter\'s sister\'s name\'s \"Anna\"')
@@ -1324,16 +1323,13 @@ print('Peter\'s sister\'s name\'s \"Anna\"')
 # SyntaxError: invalid syntax
 # print('Peter's sister's name's "Anna"')
 # SyntaxError: invalid syntax
-Explanation:
+```
 
 When you use the same kind of quotes inside of a string
 
 and outside to delimiter the string
 
 you have to escape the ones inside of the string
-
-
-
 
 
 
